@@ -9,6 +9,8 @@ package com.mycompany.penggantiuasoop;
  * @author USER
  */
 interface Hero {
-    
+    void attack();
+    void defends();
+    void useSkill();
     
 }
