@@ -10,7 +10,7 @@ package com.mycompany.penggantiuasoop;
  */
 interface Hero {
     void attack();
-    void defends();
+    void defend();
     void useSkill();
     
 }

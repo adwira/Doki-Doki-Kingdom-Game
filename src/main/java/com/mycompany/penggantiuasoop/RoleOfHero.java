@@ -12,14 +12,18 @@ abstract class RoleOfHero implements Hero{
     private int hp;
     private int exp;
     private int gold;
+    private int attackPower;
+    private int defensePower;
     private String type;
     
-    public RoleOfHero(String name, int hp, int attackPower, int defensePower, String type){
+    public RoleOfHero(String name, int hp, int gold,int exp,int attackPower, int defensePower, String type){
         this.name = name;
         this.hp = hp;
         this.exp= exp;
         this.gold = gold;
         this.type = type;
+        this.attackPower = attackPower;
+        this.defensePower = defensePower;
     }
     
     @Override
@@ -65,6 +69,22 @@ abstract class RoleOfHero implements Hero{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public int getDefensePower() {
+        return defensePower;
+    }
+
+    public void setDefensePower(int defensePower) {
+        this.defensePower = defensePower;
     }
 
     
