@@ -8,8 +8,8 @@ package com.mycompany.penggantiuasoop;
  *
  * @author USER
  */
-class Barbarian extends Enemy{
-    public Barbarian(String name, int hp,int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
+class Slime extends Enemy{
+    public Slime(String name, int hp,int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
             super(name, hp, level,gold, physicalPower, magicPower, pDefense, mgDefense);
     }
     
@@ -45,7 +45,7 @@ class Barbarian extends Enemy{
             System.out.println("Skill tidak valid!");
         }
     }
-
+    
     //CHOOSE ACTION DEFENSE
     @Override
     public String chooseAttackSkill() {
@@ -89,6 +89,8 @@ class Barbarian extends Enemy{
     public void giveUp() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 
   
     

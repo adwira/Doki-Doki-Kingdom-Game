@@ -9,8 +9,8 @@ package com.mycompany.penggantiuasoop;
  * @author USER
  */
 class Imp extends Enemy{
-    public Imp(String name, int hp,int level, int physicalPower, int magicPower, int pDefense, int mgDefense) {
-            super(name, hp, level, physicalPower, magicPower, pDefense, mgDefense);
+    public Imp(String name, int hp,int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
+            super(name, hp, level,gold, physicalPower, magicPower, pDefense, mgDefense);
     }
     
     @Override

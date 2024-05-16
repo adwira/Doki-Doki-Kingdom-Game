@@ -12,16 +12,18 @@ abstract class Enemy implements Character{
     private String name;
     private int hp;
     private int level;
+    private int gold;
     private int physicalPower;
     private int magicPower;
     private int pDefense;
     private int mgDefense;
     
     
-    public Enemy(String name, int hp, int level,int physicalPower, int magicPower, int pDefense, int mgDefense){
+    public Enemy(String name, int hp, int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense){
         this.name = name;
         this.hp = hp;
         this.level = level;
+        this.gold = gold;
         this.physicalPower = physicalPower;
         this.pDefense = pDefense;
         this.magicPower = magicPower;
