@@ -7,7 +7,7 @@ package com.mycompany.penggantiuasoop;
  *
  * @author USER
  */
-abstract class RoleOfHero implements Hero{
+abstract class Hero implements Character{
     private String name;
     private int hp;
     private int exp;
@@ -16,7 +16,7 @@ abstract class RoleOfHero implements Hero{
     private int defensePower;
     private String type;
     
-    public RoleOfHero(String name, int hp, int gold,int exp,int attackPower, int defensePower, String type){
+    public Hero(String name, int hp, int gold,int exp,int attackPower, int defensePower, String type){
         this.name = name;
         this.hp = hp;
         this.exp= exp;
