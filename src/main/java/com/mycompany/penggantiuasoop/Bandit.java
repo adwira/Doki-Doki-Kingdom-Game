@@ -48,8 +48,10 @@ class Bandit extends Enemy{
     
     //CHOOSE ACTION DEFENSE
     @Override
-    public String chooseAttackSkill() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     public String chooseAttackSkill() {
+        String[] actions = {"attack", "strike", "magicAttack", "Use Skill"};
+    int randomIndex = (int)Math.random() * 4;
+    return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     @Override
     public void strikeAttack() {
@@ -71,7 +73,9 @@ class Bandit extends Enemy{
     //CHOOSE ACTION DEFENSE
     @Override
     public String chooseDefenseSkill() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String[] actions = {"defend", "counter", "magicDefend"};
+    int randomIndex = (int)Math.random() * 3;
+    return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     @Override
     public void basicDefend() {

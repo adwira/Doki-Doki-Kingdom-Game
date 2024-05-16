@@ -9,14 +9,14 @@ package com.mycompany.penggantiuasoop;
  * @author USER
  */
 abstract class Enemy implements Character{
-    private String name;
-    private int hp;
-    private int level;
-    private int gold;
-    private int physicalPower;
-    private int magicPower;
-    private int pDefense;
-    private int mgDefense;
+    protected String name;
+    protected int hp;
+    protected int level;
+    protected int gold;
+    protected int physicalPower;
+    protected int magicPower;
+    protected int pDefense;
+    protected int mgDefense;
     
     
     public Enemy(String name, int hp, int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense){

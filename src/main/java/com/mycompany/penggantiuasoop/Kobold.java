@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.penggantiuasoop;
-
+import java.lang.Math;
 /**
  *
  * @author USER
  */
 class Kobold extends Enemy{
     public Kobold(String name, int hp,int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
-            super(name, hp, level,gold, physicalPower, magicPower, pDefense, mgDefense);
+            super(name, hp, level,gold, physicalPower, magicPower, pDefense, mgDefense);    
     }
     
     @Override
@@ -27,7 +27,6 @@ class Kobold extends Enemy{
         }else {
             System.out.println("Skill tidak valid!");
         }
-        
     }
     
     @Override
@@ -49,7 +48,9 @@ class Kobold extends Enemy{
     //CHOOSE ACTION DEFENSE
     @Override
     public String chooseAttackSkill() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String[] actions = {"attack", "strike", "magicAttack", "Use Skill"};
+    int randomIndex = (int)Math.random() * 4;
+    return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     @Override
     public void strikeAttack() {
@@ -71,7 +72,9 @@ class Kobold extends Enemy{
     //CHOOSE ACTION DEFENSE
     @Override
     public String chooseDefenseSkill() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String[] actions = {"defend", "counter", "magicDefend"};
+    int randomIndex = (int)Math.random() * 3;
+    return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     @Override
     public void basicDefend() {

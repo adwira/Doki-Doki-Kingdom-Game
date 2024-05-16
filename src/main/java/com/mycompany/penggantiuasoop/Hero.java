@@ -8,22 +8,23 @@ package com.mycompany.penggantiuasoop;
  * @author USER
  */
 abstract class Hero implements Character{
-    private String name;
+     private String name;
     private int hp;
-    private int exp;
+    private int level;
     private int gold;
-    private int attackPower;
-    private int defensePower;
-    private String type;
+    private int physicalPower;
+    private int magicPower;
+    private int pDefense;
+    private int mgDefense;
     
-    public Hero(String name, int hp, int gold,int exp,int attackPower, int defensePower, String type){
+    public Hero(String name, int hp, int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense){
         this.name = name;
         this.hp = hp;
-        this.exp= exp;
+        this.level = level;
         this.gold = gold;
-        this.type = type;
-        this.attackPower = attackPower;
-        this.defensePower = defensePower;
+        this.physicalPower = physicalPower;
+        this.pDefense = pDefense;
+        this.magicPower = magicPower;
     }
     
     @Override
@@ -47,12 +48,12 @@ abstract class Hero implements Character{
         this.hp = hp;
     }
 
-    public int getExp() {
-        return exp;
+    public int getLevel() {
+        return level;
     }
 
-    public void setExp(int exp) {
-        this.exp = exp;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int getGold() {
@@ -63,29 +64,39 @@ abstract class Hero implements Character{
         this.gold = gold;
     }
 
-    public String getType() {
-        return type;
+    public int getPhysicalPower() {
+        return physicalPower;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setPhysicalPower(int physicalPower) {
+        this.physicalPower = physicalPower;
     }
 
-    public int getAttackPower() {
-        return attackPower;
+    public int getMagicPower() {
+        return magicPower;
     }
 
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
+    public void setMagicPower(int magicPower) {
+        this.magicPower = magicPower;
     }
 
-    public int getDefensePower() {
-        return defensePower;
+    public int getpDefense() {
+        return pDefense;
     }
 
-    public void setDefensePower(int defensePower) {
-        this.defensePower = defensePower;
+    public void setpDefense(int pDefense) {
+        this.pDefense = pDefense;
     }
+
+    public int getMgDefense() {
+        return mgDefense;
+    }
+
+    public void setMgDefense(int mgDefense) {
+        this.mgDefense = mgDefense;
+    }
+
+
 
     
     
