@@ -8,6 +8,9 @@ package com.mycompany.penggantiuasoop;
  *
  * @author USER
  */
-class thief{
+interface Hero {
+    void attack();
+    void defend();
+    void useSkill();
     
 }
