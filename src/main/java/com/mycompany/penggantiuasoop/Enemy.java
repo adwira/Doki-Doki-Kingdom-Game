@@ -8,14 +8,14 @@ package com.mycompany.penggantiuasoop;
  *
  * @author USER
  */
-abstract class RoleOfEnemy implements Enemy{
+abstract class Enemy implements Character{
     private String name;
     private int hp;
     private int attackPower;
     private int defensePower;
     private String type;
     
-    public RoleOfEnemy(String name, int hp, int attackPower, int defensePower, String type){
+    public Enemy(String name, int hp, int attackPower, int defensePower, String type){
         this.name = name;
         this.hp = hp;
         this.attackPower = attackPower;
