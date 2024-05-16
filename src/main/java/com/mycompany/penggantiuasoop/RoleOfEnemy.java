@@ -11,15 +11,19 @@ package com.mycompany.penggantiuasoop;
 abstract class RoleOfEnemy implements Enemy{
     private String name;
     private int hp;
-    private int attackPower;
-    private int defensePower;
+    private int physicalPower;
+    private int magicPower;
+    private int pDefense;
+    private int mgDefense;
     private String type;
     
-    public RoleOfEnemy(String name, int hp, int attackPower, int defensePower, String type){
+    public RoleOfEnemy(String name, int hp, int physicalPower,int magicPower, int pDefense,int mgDefense, String type){
         this.name = name;
         this.hp = hp;
-        this.attackPower = attackPower;
-        this.defensePower = defensePower;
+        this.physicalPower = physicalPower;
+        this.magicPower = magicPower;
+        this.pDefense = pDefense;
+        this.mgDefense = mgDefense;
         this.type = type;
     }
     
@@ -44,20 +48,36 @@ abstract class RoleOfEnemy implements Enemy{
         this.hp = hp;
     }
 
-    public int getAttackPower() {
-        return attackPower;
+    public int getPhysicalPower() {
+        return physicalPower;
     }
 
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
+    public void setPhysicalPower(int physicalPower) {
+        this.physicalPower = physicalPower;
     }
 
-    public int getDefensePower() {
-        return defensePower;
+    public int getMagicPower() {
+        return magicPower;
     }
 
-    public void setDefensePower(int defensePower) {
-        this.defensePower = defensePower;
+    public void setMagicPower(int magicPower) {
+        this.magicPower = magicPower;
+    }
+
+    public int getpDefense() {
+        return pDefense;
+    }
+
+    public void setpDefense(int pDefense) {
+        this.pDefense = pDefense;
+    }
+
+    public int getMgDefense() {
+        return mgDefense;
+    }
+
+    public void setMgDefense(int mgDefense) {
+        this.mgDefense = mgDefense;
     }
 
     public String getType() {
@@ -67,6 +87,8 @@ abstract class RoleOfEnemy implements Enemy{
     public void setType(String type) {
         this.type = type;
     }
+
+    
     
     
     
