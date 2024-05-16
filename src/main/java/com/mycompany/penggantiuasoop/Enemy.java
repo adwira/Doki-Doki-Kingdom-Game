@@ -11,22 +11,35 @@ package com.mycompany.penggantiuasoop;
 abstract class Enemy implements Character{
     private String name;
     private int hp;
-    private int attackPower;
-    private int defensePower;
-    private String type;
+    private int physicalAttack;
+    private int magicAttack;
+    private int pDefense;
+    private int mgDefense;
     
-    public Enemy(String name, int hp, int attackPower, int defensePower, String type){
+    
+    public Enemy(String name, int hp, int physicalAttack, int magicAttack, int pDefense, int mgDefense){
         this.name = name;
         this.hp = hp;
-        this.attackPower = attackPower;
-        this.defensePower = defensePower;
-        this.type = type;
+        this.physicalAttack = physicalAttack;
+        this.pDefense = pDefense;
+        this.magicAttack = magicAttack;
     }
     
     @Override
     public abstract void attack();
     @Override
     public abstract void defend();
+
+    public void acidBreath() {
+        
+    }
+    public void fireball(){
+        
+    }
+    
+    public void poisonDagger(){
+        
+    }
 
     public String getName() {
         return name;
@@ -44,29 +57,39 @@ abstract class Enemy implements Character{
         this.hp = hp;
     }
 
-    public int getAttackPower() {
-        return attackPower;
+    public int getPhysicalAttack() {
+        return physicalAttack;
     }
 
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
+    public void setPhysicalAttack(int physicalAttack) {
+        this.physicalAttack = physicalAttack;
     }
 
-    public int getDefensePower() {
-        return defensePower;
+    public int getMagicAttack() {
+        return magicAttack;
     }
 
-    public void setDefensePower(int defensePower) {
-        this.defensePower = defensePower;
+    public void setMagicAttack(int magicAttack) {
+        this.magicAttack = magicAttack;
     }
 
-    public String getType() {
-        return type;
+    public int getpDefense() {
+        return pDefense;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setpDefense(int pDefense) {
+        this.pDefense = pDefense;
     }
+
+    public int getMgDefense() {
+        return mgDefense;
+    }
+
+    public void setMgDefense(int mgDefense) {
+        this.mgDefense = mgDefense;
+    }
+    
+    
     
     
     
