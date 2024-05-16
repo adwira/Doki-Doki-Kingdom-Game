@@ -14,12 +14,13 @@ interface Character {
     void useSkill();
     public String chooseAttackSkill();
     public String chooseDefenseSkill();
+    
+    //Attack
     public void basicAttack();
     public void strikeAttack();
     public void magicAttack();
-    public void pickPocket();
-    public void scorch();
-    public void runeSword();
+    
+    //Defend
     public void basicDefend();
     public void counter();
     public void giveUp();
