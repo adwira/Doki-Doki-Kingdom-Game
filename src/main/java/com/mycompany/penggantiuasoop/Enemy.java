@@ -11,15 +11,17 @@ package com.mycompany.penggantiuasoop;
 abstract class Enemy implements Character{
     private String name;
     private int hp;
+    private int level;
     private int physicalPower;
     private int magicPower;
     private int pDefense;
     private int mgDefense;
     
     
-    public Enemy(String name, int hp, int physicalPower, int magicPower, int pDefense, int mgDefense){
+    public Enemy(String name, int hp, int level,int physicalPower, int magicPower, int pDefense, int mgDefense){
         this.name = name;
         this.hp = hp;
+        this.level = level;
         this.physicalPower = physicalPower;
         this.pDefense = pDefense;
         this.magicPower = magicPower;
@@ -30,17 +32,25 @@ abstract class Enemy implements Character{
     @Override
     public abstract void defend();
 
+    //Magic Attack Barbarian
     public void acidBreath() {
         
     }
+    
+    //Magic Attack Imp
     public void fireball(){
         
     }
     
+    //Magic Attack Kobold
     public void poisonDagger(){
         
     }
     
+    //Magic Attack Bandit
+    public void stealGold(){
+        
+    }
     //CHOOSE ACTION ATTACK
     @Override
     public String chooseAttackSkill() {
@@ -102,6 +112,14 @@ abstract class Enemy implements Character{
         this.hp = hp;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    
     public int getPhysicalPower() {
         return physicalPower;
     }
@@ -133,6 +151,8 @@ abstract class Enemy implements Character{
     public void setMgDefense(int mgDefense) {
         this.mgDefense = mgDefense;
     }
+
+
 
     
     

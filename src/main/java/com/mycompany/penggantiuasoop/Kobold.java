@@ -9,8 +9,8 @@ package com.mycompany.penggantiuasoop;
  * @author USER
  */
 class Kobold extends Enemy{
-    public Kobold(String name, int hp, int physicalAttack, int magicAttack, int pDefense, int mgDefense) {
-            super(name, hp, physicalAttack, magicAttack, pDefense, mgDefense);
+    public Kobold(String name, int hp,int level, int physicalPower, int magicPower, int pDefense, int mgDefense) {
+            super(name, hp, level, physicalPower, magicPower, pDefense, mgDefense);
     }
     
     @Override
