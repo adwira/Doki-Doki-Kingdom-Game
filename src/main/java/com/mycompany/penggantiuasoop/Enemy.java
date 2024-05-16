@@ -34,7 +34,7 @@ abstract class Enemy implements Character{
     @Override
     public abstract void defend();
 
-    //Magic Attack Barbarian
+    //Magic Attack Barbarian sama Goblin
     public void acidBreath() {
         
     }
@@ -53,8 +53,11 @@ abstract class Enemy implements Character{
     public void stealGold(){
         
     }
-    //CHOOSE ACTION ATTACK
     
+    //Magic Attack Slime
+    public void splash(){
+        
+    }
 
     //SETTER GETTER
     public String getName() {
@@ -77,6 +80,14 @@ abstract class Enemy implements Character{
         return level;
     }
 
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+        
     public void setLevel(int level) {
         this.level = level;
     }
@@ -113,4 +124,5 @@ abstract class Enemy implements Character{
         this.mgDefense = mgDefense;
     }
 
+    
 }
