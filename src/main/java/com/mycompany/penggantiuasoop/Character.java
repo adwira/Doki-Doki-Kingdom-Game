@@ -11,7 +11,7 @@ package com.mycompany.penggantiuasoop;
 interface Character {
     void attack();
     void defend();
-    void useSkill();
+    
     public String chooseAttackSkill();
     public String chooseDefenseSkill();
     
@@ -19,6 +19,7 @@ interface Character {
     public void basicAttack();
     public void strikeAttack();
     public void magicAttack();
+    public void useSkill();
     
     //Defend
     public void basicDefend();
