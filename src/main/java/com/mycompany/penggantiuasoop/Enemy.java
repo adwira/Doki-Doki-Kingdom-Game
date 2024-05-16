@@ -11,18 +11,18 @@ package com.mycompany.penggantiuasoop;
 abstract class Enemy implements Character{
     private String name;
     private int hp;
-    private int physicalAttack;
-    private int magicAttack;
+    private int physicalPower;
+    private int magicPower;
     private int pDefense;
     private int mgDefense;
     
     
-    public Enemy(String name, int hp, int physicalAttack, int magicAttack, int pDefense, int mgDefense){
+    public Enemy(String name, int hp, int physicalPower, int magicPower, int pDefense, int mgDefense){
         this.name = name;
         this.hp = hp;
-        this.physicalAttack = physicalAttack;
+        this.physicalPower = physicalPower;
         this.pDefense = pDefense;
-        this.magicAttack = magicAttack;
+        this.magicPower = magicPower;
     }
     
     @Override
@@ -40,7 +40,52 @@ abstract class Enemy implements Character{
     public void poisonDagger(){
         
     }
+    
+    //CHOOSE ACTION ATTACK
+    @Override
+    public String chooseAttackSkill() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void strikeAttack() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void basicAttack() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void magicAttack() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void useSkill(){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    //CHOOSE ACTION DEFENSE
+    @Override
+    public String chooseDefenseSkill() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void basicDefend() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void counter() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void magicDefend() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public void giveUp() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
+    //SETTER GETTER
     public String getName() {
         return name;
     }
@@ -57,20 +102,20 @@ abstract class Enemy implements Character{
         this.hp = hp;
     }
 
-    public int getPhysicalAttack() {
-        return physicalAttack;
+    public int getPhysicalPower() {
+        return physicalPower;
     }
 
-    public void setPhysicalAttack(int physicalAttack) {
-        this.physicalAttack = physicalAttack;
+    public void setPhysicalPower(int physicalPower) {
+        this.physicalPower = physicalPower;
     }
 
-    public int getMagicAttack() {
-        return magicAttack;
+    public int getMagicPower() {
+        return magicPower;
     }
 
-    public void setMagicAttack(int magicAttack) {
-        this.magicAttack = magicAttack;
+    public void setMagicPower(int magicPower) {
+        this.magicPower = magicPower;
     }
 
     public int getpDefense() {
@@ -88,6 +133,8 @@ abstract class Enemy implements Character{
     public void setMgDefense(int mgDefense) {
         this.mgDefense = mgDefense;
     }
+
+    
     
     
     
