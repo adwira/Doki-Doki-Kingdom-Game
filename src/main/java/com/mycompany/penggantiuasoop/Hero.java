@@ -8,13 +8,13 @@ package com.mycompany.penggantiuasoop;
  * @author USER
  */
 abstract class Hero implements Character{
-    private String name;
-    private int hp;
-    private int exp;
-    private int gold;
-    private int attackPower;
-    private int defensePower;
-    private String type;
+    protected String name;
+    protected int hp;
+    protected int exp;
+    protected int gold;
+    protected int attackPower;
+    protected int defensePower;
+    protected String type;
     
     public Hero(String name, int hp, int gold,int exp,int attackPower, int defensePower, String type){
         this.name = name;
@@ -30,6 +30,17 @@ abstract class Hero implements Character{
     public abstract void attack();
     @Override
     public abstract void defend();
+    public void scorch(){
+
+    }
+
+    public void runeSword(){
+        
+    }
+
+    public void pickpocket(){
+
+    }
 
     public String getName() {
         return name;
