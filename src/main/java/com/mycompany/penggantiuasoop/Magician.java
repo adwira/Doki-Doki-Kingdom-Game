@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Magician extends Hero{
     private static final Scanner scanner = new Scanner(System.in);
 
-    public Magician(String name, int hp, int gold, int exp, int attackPower, int defensePower, String type) {
-        super(name, hp, gold, exp, attackPower, defensePower, type);
+    public Magician(String name, int hp, int gold,int level,int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
+        super(name, hp, gold, level,physicalPower,magicPower, physicalDefense, magicDefend , type);
         //TODO Auto-generated constructor stub
     }
 
@@ -72,6 +72,11 @@ public class Magician extends Hero{
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'magicDefend'");
         System.out.println(name + "bertahan dengan Magic Defend");
+    }
+
+    @Override
+    public void magicAttack(){
+        System.out.println(name + " Menyerang dengan ");
     }
 
     @Override

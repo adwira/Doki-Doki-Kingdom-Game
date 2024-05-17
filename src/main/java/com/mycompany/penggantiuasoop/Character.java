@@ -16,6 +16,7 @@ interface Character {
     public int chooseDefenseSkill();
     public void basicAttack();
     public void strikeAttack();
+    public void magicAttack();
     public void basicDefend();
     public void counter();
     public void giveUp();
