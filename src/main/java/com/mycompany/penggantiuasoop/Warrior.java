@@ -5,17 +5,10 @@ import java.util.Scanner;
 public class Warrior extends Hero {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public Warrior(String name, int hp, int gold, int exp, int attackPower, int defensePower, String type) {
-        super(name, hp, gold, exp, attackPower, defensePower, type);
-        //TODO Auto-generated constructor stub
+    public Warrior(String name, int hp, int gold, int level, int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
+        super(name, hp, gold, level, physicalPower, magicPower, physicalDefense, magicDefend, type);
     }
 
-    @Override
-    public void useSkill() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'useSkill'");
-        System.out.println(name + " menggunakan skill Muscle");
-    }
 
     @Override
     public int chooseAttackSkill() {
@@ -45,7 +38,17 @@ public class Warrior extends Hero {
         // TODO Auto-generated method stub
         System.out.println(name + " menggunakan skill Strike!");
     }
-
+    
+    @Override
+    public void runeSword() {
+        System.out.println(name + " menggunakan magic attack!");
+    }
+    
+    @Override
+    public void muscle() {
+        System.out.println(name + " menggunakan skill muscle!");
+    }
+    
     @Override
     public void basicDefend() {
         // TODO Auto-generated method stub
@@ -78,7 +81,7 @@ public class Warrior extends Hero {
     public void attack() {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'attack'");
-        int skillChoice = chooseDefenseSkill();
+        int skillChoice = chooseAttackSkill();
         switch (skillChoice) {
             case 1:
             basicAttack();
@@ -93,7 +96,7 @@ public class Warrior extends Hero {
             break;
 
             case 4:
-            useSkill();
+            muscle();
             break;
         }
 

@@ -6,18 +6,10 @@ import java.util.Scanner;
 public class Thief extends Hero {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public Thief(String name, int hp, int gold, int exp, int attackPower, int defensePower, String type) {
-        super(name, hp, gold, exp, attackPower, defensePower, type);
-        
-        //TODO Auto-generated constructor stub
+    public Thief(String name, int hp, int gold, int level, int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
+        super(name, hp, gold, level, physicalPower, magicPower, physicalDefense, magicDefend, type);
     }
 
-    @Override
-    public void useSkill() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'useSkill'");
-        System.out.println(name + " menggunakan skill ");
-    }
 
     @Override
     public int chooseAttackSkill() {
@@ -46,6 +38,18 @@ public class Thief extends Hero {
     public void strikeAttack() {
         // TODO Auto-generated method stub
         System.out.println(name + " menggunakan skill Strike!");
+    }
+    
+    @Override
+    public void pickpocket() {
+        // TODO Auto-generated method stub
+        System.out.println(name + " menggunakan !");
+    }
+    
+    @Override
+    public void moneyGrubber() {
+        // TODO Auto-generated method stub
+        System.out.println(name + " menggunakan skill money grubber!");
     }
 
     @Override
@@ -80,7 +84,7 @@ public class Thief extends Hero {
     public void attack() {
         // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'attack'");
-        int skillChoice = chooseDefenseSkill();
+        int skillChoice = chooseAttackSkill();
         switch (skillChoice) {
             case 1:
             basicAttack();
@@ -95,7 +99,7 @@ public class Thief extends Hero {
             break;
 
             case 4:
-            useSkill();
+            moneyGrubber();
             break;
         }
 

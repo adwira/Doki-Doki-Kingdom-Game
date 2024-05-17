@@ -34,18 +34,39 @@ abstract class Hero implements Character{
     public abstract void attack();
     @Override
     public abstract void defend();
+    
+    public void giveUp() {
+        
+    }
+    //Magic Attack Magician, dmg = mgPower x2
     public void scorch(){
 
     }
-
+    
+    //Magic Attack Warrior, dmg = pAttack + pDef, dmg tipe magic attack
     public void runeSword(){
         
     }
-
+    
+    //Magic Attack Thief, dmg = pAttack * 150% + 10% Gold, trus nyuri gold
     public void pickpocket(){
 
     }
 
+    //Skill Warrior, pAttack & pDef naik 50%
+    public void muscle(){
+        
+    }
+    //Skill Magician, mgPower x2
+    public void meditate(){
+        
+    }
+    //Skill Thief, gold * 150%
+    public void moneyGrubber(){
+        
+    }
+    
+    
     public String getName() {
         return name;
     }
@@ -118,7 +139,4 @@ abstract class Hero implements Character{
         this.magicDefense = magicDefense;
     }
 
-    
-    
-    
 }

@@ -17,10 +17,9 @@ abstract class Enemy implements Character{
     protected int magicPower;
     protected int physicalDefense;
     protected int magicDefense;
-    protected String type;
     
     public Enemy(String name, int hp, int level, int gold, int physicalPower, int magicPower, int physicalDefense,
-            int magicDefense, String type) {
+            int magicDefense) {
         this.name = name;
         this.hp = hp;
         this.level = level;
@@ -29,7 +28,6 @@ abstract class Enemy implements Character{
         this.magicPower = magicPower;
         this.physicalDefense = physicalDefense;
         this.magicDefense = magicDefense;
-        this.type = type;
     }
     @Override
     public abstract void attack();
@@ -61,6 +59,20 @@ abstract class Enemy implements Character{
         
     }
 
+    // Skill Barbarian dan Goblin, nambahin pAttack 50% tapi ngurangin pDef 50%
+    public void battleCry() {
+        
+    }
+    
+    //Skill Kobold dan Bandit, nambahin pAttack dan mgAttack 50%
+    public void exercise() {
+        
+    }
+     
+    //SKill IMP, 2x mgAttack, ngurangin mgDef 50%
+    public void focusMind() {
+        
+    }
     public String getName() {
         return name;
     }
@@ -77,13 +89,6 @@ abstract class Enemy implements Character{
         this.hp = hp;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getLevel() {
         return level;
