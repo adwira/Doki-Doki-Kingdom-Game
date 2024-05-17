@@ -124,6 +124,7 @@ public class Thief extends Hero {
             giveUp();
             break;
         }
+        
     }
 
 }
