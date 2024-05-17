@@ -122,4 +122,5 @@ abstract class Enemy implements Character{
         this.magicDefense = magicDefense;
     }
     
+    
 }
