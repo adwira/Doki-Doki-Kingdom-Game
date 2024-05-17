@@ -60,6 +60,7 @@ class Kobold extends Enemy{
     int randomIndex = (int)Math.random() * 4;
     return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
     @Override
     public void strikeAttack() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
