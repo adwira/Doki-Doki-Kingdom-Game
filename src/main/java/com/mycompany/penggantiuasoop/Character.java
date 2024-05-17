@@ -21,5 +21,6 @@ interface Character {
     public void counter();
     public void giveUp();
     public void magicDefend();
+
     
 }
