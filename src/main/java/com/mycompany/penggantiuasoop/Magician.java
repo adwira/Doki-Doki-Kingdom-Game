@@ -125,5 +125,4 @@ public class Magician extends Hero{
         }
     }
 
-
 }
