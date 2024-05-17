@@ -32,8 +32,10 @@ abstract class Hero implements Character{
     
     @Override
     public abstract void attack();
+
     @Override
     public abstract void defend();
+    
     public void scorch(){
 
     }
