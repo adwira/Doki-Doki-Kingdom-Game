@@ -72,6 +72,7 @@ public class Warrior extends Hero {
         System.out.println(name + "memilih menyerah, cemen banget lu bang");
     }
 
+    
     @Override
     public void magicDefend() {
         // TODO Auto-generated method stub
