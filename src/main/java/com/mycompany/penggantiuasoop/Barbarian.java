@@ -25,8 +25,7 @@ class Barbarian extends Enemy{
             case 4:
             useSkill();
             break;
-        }
-       
+        }    
         
     }
     
