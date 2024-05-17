@@ -26,7 +26,6 @@ class Imp extends Enemy{
             useSkill();
             break;
         }
-       
         
     }
     
