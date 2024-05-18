@@ -98,7 +98,7 @@ abstract void battleCry();
             dmg = Math.max(0,getPhysicalPower());    
         } else {}
         hero.setHp(hero.getHp() - dmg);
-        System.out.println("Kamu memberikan damage " + dmg + " kepada " + hero.getName());
+        System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());
     }
     
     //Magic Attack Imp

@@ -19,7 +19,6 @@ public class Magician extends Hero{
 
     @Override
     public int chooseDefenseSkill() {
-        int a = 0;
         System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
         return scanner.nextInt();
 
