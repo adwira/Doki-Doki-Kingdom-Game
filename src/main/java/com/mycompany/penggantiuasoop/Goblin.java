@@ -26,11 +26,19 @@ class Goblin extends Enemy{
         setPhysicalPower(getPhysicalPower() * 3/2);
         setPhysicalDefense(getPhysicalDefense() * 1/2);
     }
-
-    
-    
+  
     @Override
+    public void attack(Hero hero){
+         int skillChoice = chooseAttackSkill();
+        switch (skillChoice) {
+            case 1 -> basicAttack(hero);
 
+            case 2 -> strikeAttack(hero);
+
+            case 3 -> acidBreath(hero);
+
+        }
+    }
 
     //CHOOSE ACTION DEFENSE
    
@@ -62,8 +70,6 @@ class Goblin extends Enemy{
     }
     
     
-
-        @Override
       public void acidBreath(Hero hero) {
         int dmg = 0;
         int x = hero.chooseDefenseSkill();
@@ -85,9 +91,4 @@ class Goblin extends Enemy{
         hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());  
     }
-    
-    
-
-    
-    
 }

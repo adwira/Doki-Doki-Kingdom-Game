@@ -1,97 +1,94 @@
-///*
-// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-// * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
-// */
-//package com.mycompany.penggantiuasoop;
-//import java.lang.Math;
-///**
-// *
-// * @author USER
-// */
-//class Barbarian extends Enemy{
-//    public Barbarian(String name, int hp,int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
-//            super(name, hp, level,gold, physicalPower, magicPower, pDefense, mgDefense);  
-//            
-//    }
-//            int tempPw;
-//            int tempPd;
-//    @Override
-//    public void attack(){
-//         int skillChoice = chooseAttackSkill();
-//        switch (skillChoice) {
-//            case 1 -> basicAttack();
-//
-//            case 2 -> strikeAttack();
-//
-//            case 3 -> acidBreath();
-//
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.penggantiuasoop;
+import java.lang.Math;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+/**
+ *
+ * @author USER
+ */
+class Barbarian extends Enemy{
+    public Barbarian(String name, int hp,int level,int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
+            super(name, hp, level,gold, physicalPower, magicPower, pDefense, mgDefense);    
+    }
+    int tempPd;
+    int tempPw;
+    
+        public void battleCry(){
+        System.out.println(name +" menggunakan skill Battle Cry");
+        this.tempPw = getPhysicalPower();
+        this.tempPd = getPhysicalDefense();
+        setPhysicalPower(getPhysicalPower() * 3/2);
+        setPhysicalDefense(getPhysicalDefense() * 1/2);
+    }
+  
+    @Override
+    public void attack(Hero hero){
+         int skillChoice = chooseAttackSkill();
+        switch (skillChoice) {
+            case 1 -> basicAttack(hero);
+
+            case 2 -> strikeAttack(hero);
+
+            case 3 -> acidBreath(hero);
+
 //            case 4 -> battleCry();
-//        }
-//    }
-//    
-//    @Override
-//    public void defend(){
-//        int defendChoice = chooseDefenseSkill();
-//        switch (defendChoice) {
-//            case 1 -> basicDefend();
-//            case 2 -> counter();
-//            case 3 -> magicDefend();
-//        }
-//    }
-//
-//    //CHOOSE ACTION DEFENSE
-//    @Override
-//    public int chooseAttackSkill() {
-//        int[] actions = {0,1,2,3};
-//    int randomIndex = (int)Math.random() * 4;
-//    return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void strikeAttack() {
-//        System.out.println(name +" menggunakan strike"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void basicAttack() {
-//        System.out.println(name +" menggunakan skill Basic Attack");// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void acidBreath() {
-//        System.out.println(name +" menggunakan skill acidBreath"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void battleCry(){
-//        System.out.println(name +" menggunakan skill Battle Cry");
-//        this.tempPw = getPhysicalPower();
-//        this.tempPd = getPhysicalDefense();
-//        setPhysicalPower(getPhysicalPower() * 3/2);
-//        setPhysicalDefense(getPhysicalDefense() * 1/2);
-//    }
-//    
-//    //CHOOSE ACTION DEFENSE
-//    @Override
-//    public int chooseDefenseSkill() {
-//        int[] actions = {0,1,2};
-//    int randomIndex = (int)Math.random() * 3;
-//    return actions[randomIndex]; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void basicDefend() {
-//        System.out.println(name +" menggunakan skill Basic Defend"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void counter() {
-//        System.out.println(name +" menggunakan Counter"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//    @Override
-//    public void magicDefend() {
-//        System.out.println(name +" menggunakan skill Magic Shield"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//
-//  
-//    
-//    
-//
-//    
-//    
-//}
+        }
+    }
+
+    //CHOOSE ACTION DEFENSE
+   
+    public int chooseAttackSkill() {
+        List<Integer> actions = new ArrayList<>();
+    actions.add(1); // Basic Attack
+    actions.add(2); // Strike Attack
+    actions.add(3); // Acid Breath
+//    actions.add(4); // Battle Cry
+
+    Random random = new Random();
+    int randomIndex = random.nextInt(actions.size());
+    return actions.get(randomIndex);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+
+        
+    //CHOOSE ACTION DEFENSE
+    @Override
+    public int chooseDefenseSkill() {
+        List<Integer> actions = new ArrayList<>();
+    actions.add(1); // Defend
+    actions.add(2); // Counter
+    actions.add(3); // Magic Shield
+
+    Random random = new Random();
+    int randomIndex = random.nextInt(actions.size());
+    return actions.get(randomIndex);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+      public void acidBreath(Hero hero) {
+        int dmg = 0;
+        int x = hero.chooseDefenseSkill();
+        if(x == 1){
+            dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)) - hero.getMagicDefense());
+            System.out.println("kamu menggunakan Defend!");
+            System.out.println("Musuh menggunakan Acid Breath!");
+        }
+        else if(x == 2) {
+            dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)));
+            System.out.println("kamu menggunakan Counter!");
+            System.out.println("Musuh menggunakan Acid Breath!");
+        }
+        else if (x == 3){ 
+            dmg = Math.max(0,((getMagicPower() + (getPhysicalDefense() / 2)) / 2));
+            System.out.println("kamu menggunakan Defend!");
+            System.out.println("Musuh menggunakan Acid Breath!");
+        } else {}
+        hero.setHp(hero.getHp() - dmg);
+        System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());  
+    }
+
+}

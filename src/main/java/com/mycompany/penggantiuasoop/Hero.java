@@ -105,52 +105,9 @@ abstract class Hero implements Character{
     
     }
     public void giveUp() {
-        
-    }
-    //Magic Attack Magician, dmg = mgPower x2
-    
-    
-    //Magic Attack Warrior, dmg = pAttack + pDef, dmg tipe magic attack
-    public void runeSword(Enemy enemy){
-        int dmg;
-        int x = enemy.chooseDefenseSkill();
-        System.out.println("Kamu menggunakan Rune Sword!");
-        if(x == 1){
-            dmg = (getPhysicalPower() + getPhysicalDefense()) - enemy.getMagicDefense();
-        }
-        else if(x == 2) {
-            dmg = getPhysicalPower() + getPhysicalDefense();
-        }
-        else { dmg = getPhysicalPower() + getPhysicalDefense() / 2;
-        }
-    }
-    
-    //Magic Attack Thief, dmg = pAttack * 150% + 10% Gold, trus nyuri gold
-    public void pickpocket(Enemy enemy){
-       int dmg;
-       int x = enemy.chooseDefenseSkill();
-       System.out.println("Kamu menggunakan Pickpocket!");
-        if(x == 1){
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) - enemy.getMagicDefense();
-        }
-        else if(x == 2) {
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10));
-        }
-        else { dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) / 2;
-        }
+        setGold(0);
     }
 
-    //Skill Warrior, pAttack & pDef naik 50%
-    public void muscle(){
-        
-    }
-    //Skill Magician, mgPower x2
- 
-    //Skill Thief, gold * 150%
-    public void moneyGrubber(){
-        
-    }
-    
     public void basicDefend(Enemy enemy){
         int x = enemy.chooseDefenseSkill();
        System.out.println("Kamu menggunakan Defend!");

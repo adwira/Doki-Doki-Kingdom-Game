@@ -1,115 +1,79 @@
-//package com.mycompany.penggantiuasoop;
-//
-//
-//import java.util.Scanner;
-//
-//public class Thief extends Hero {
-//    private static final Scanner scanner = new Scanner(System.in);
-//
-//    public Thief(String name, int hp, int gold, int level, int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
-//        super(name, hp, gold, level, physicalPower, magicPower, physicalDefense, magicDefend, type);
-//    }
-//
-//
-//    @Override
-//    public int chooseAttackSkill() {
-//         System.out.println("Pilih Skill Serangan (attack/strike/pickpocket/):");
-//        return scanner.nextInt();
-//        // TODO Auto-generated method stub
-// 
-//    }
-//
-//    @Override
-//    public int chooseDefenseSkill() {
-//        System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
-//        return scanner.nextInt();
-//        // TODO Auto-generated method stub
-//
-//    }
-//
-//    @Override
-//    public void basicAttack() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'basicAttack'");
-//        System.out.println(name +" menggunakan skill Basic Attack");
-//    }
-//
-//    @Override
-//    public void strikeAttack() {
-//        // TODO Auto-generated method stub
-//        System.out.println(name + " menggunakan skill Strike!");
-//    }
-//    
-//    @Override
-//    public void pickpocket() {
-//        // TODO Auto-generated method stub
-//        System.out.println(name + " menggunakan Pickpocket!");
-//        
-//    }
-//    
-//    @Override
-//    public void moneyGrubber() {
-//        // TODO Auto-generated method stub
-//        System.out.println(name + " menggunakan skill money grubber!");
-//        setGold(getGold() * 3/2);
-//    }
-//
-//    @Override
-//    public void basicDefend() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'basicDefend'");
-//        System.out.println(name+" bertahan dengan Basic Defend");
-//    }
-//
-//    @Override
-//    public void counter() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'counter'");
-//        System.out.println(name + " bertahan dengan skill Counter");
-//    }
-//
-//    @Override
-//    public void giveUp() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'giveUp'");
-//        System.out.println(name + "memilih menyerah, cemen banget lu bang");
-//    }
-//
-//    @Override
-//    public void magicDefend() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'magicDefend'");
-//        System.out.println(name + "bertahan dengan Magic Defend");
-//    }
-//
-//    @Override
-//    public void attack() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'attack'");
-//        int skillChoice = chooseAttackSkill();
-//        switch (skillChoice) {
-//            case 1 -> basicAttack();
-//
-//            case 2 -> strikeAttack();
-//
-//            case 3 -> pickpocket();
-//
-//            case 4 -> moneyGrubber();
-//        }
-//
-//    }
-//
-//    @Override
-//    public void defend() {
-//        // TODO Auto-generated method stub
-//        // throw new UnsupportedOperationException("Unimplemented method 'defend'");
-//        int defendChoice = chooseDefenseSkill();
-//        switch (defendChoice) {
-//            case 1 -> basicDefend();
-//            case 2 -> counter();
-//            case 3 -> magicDefend();
-//            case 4 -> giveUp();
-//        }
-//    }
-//
-//}
+package com.mycompany.penggantiuasoop;
+
+import java.util.Scanner;
+
+public class Thief extends Hero{
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public Thief(String name, int hp, int gold, int level, int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
+        super(name, hp, gold, level, physicalPower, magicPower, physicalDefense, magicDefend, type);
+    }
+
+    int tempM;
+    @Override
+    public int chooseAttackSkill() {
+         System.out.println("Pilih Skill Serangan (attack/strike/scorch/meditate):");
+        return scanner.nextInt();
+ 
+    }
+
+    @Override
+    public int chooseDefenseSkill() {
+        System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
+        return scanner.nextInt();
+
+    }
+    
+    @Override
+    public void attack(Enemy enemy) {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'attack'");
+        int skillChoice = chooseAttackSkill();
+        switch (skillChoice) {
+            case 1:
+            basicAttack(enemy);
+            break; 
+
+            case 2:
+            strikeAttack(enemy);
+            break;
+
+            case 3:
+            pickpocket(enemy);
+            break;
+
+            case 4:
+            moneyGrubber();
+            break;
+        }
+    }
+    
+    public void pickpocket(Enemy enemy){
+       int dmg = 0;
+       int x = enemy.chooseDefenseSkill();
+        if(x == 1){
+            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) - enemy.getMagicDefense();
+            System.out.println("Musuh menggunakan Defend!");
+            System.out.println("Musuh menggunakan Pickpocket!");
+        }
+        else if(x == 2) {
+            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10));
+            System.out.println("Musuh menggunakan Counter!");
+            System.out.println("Musuh menggunakan Pickpocket!");
+        }
+        else if(x == 3) { 
+            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) / 2;
+            System.out.println("Musuh menggunakan Magic Shield!");
+            System.out.println("Musuh menggunakan Pickpocket!");
+        }
+        enemy.setHp(enemy.getHp() - dmg);
+        System.out.println("Kamu memberikan damage " + dmg + " kepada " + enemy.getName());
+    }
+    
+    public void moneyGrubber(){
+        setGold(getGold()*3/2);
+    }
+}
+
+
+   

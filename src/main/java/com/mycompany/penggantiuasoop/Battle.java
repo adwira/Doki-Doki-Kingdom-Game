@@ -57,10 +57,17 @@ public class Battle {
                 printTurnSummary(hero, enemy);
 
                 // Check for win/lose condition
+                int x = hero.chooseDefenseSkill();
                 if (hero.getHp() <= 0) {
                     System.out.println("Hero is defeated!");
                     break;
-                } else if (enemy.getHp() <= 0) {
+                } 
+                else if (x == 4){
+                    hero.giveUp();
+                    enemies.remove(enemy);
+                    System.out.println("Cemen lu bang!");
+                }
+                else if (enemy.getHp() <= 0) {
                     System.out.println(enemy.getName() + " is defeated!");
                     enemies.remove(enemy); // Remove defeated enemy from list
                     break;

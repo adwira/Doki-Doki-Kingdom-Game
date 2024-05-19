@@ -40,18 +40,7 @@ public void defend(){
         }
     }
 
-public void attack(Hero hero){
-         int skillChoice = chooseAttackSkill();
-        switch (skillChoice) {
-            case 1 -> basicAttack(hero);
-
-            case 2 -> strikeAttack(hero);
-
-            case 3 -> acidBreath(hero);
-
-//            case 4 -> battleCry();
-        }
-    }
+abstract void attack(Hero hero);
 public void basicDefend() {
        // System.out.println(name +" menggunakan skill Basic Defend"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -63,9 +52,6 @@ public void basicDefend() {
     public void magicDefend() {
        // System.out.println(name +" menggunakan Magic Shield"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-abstract void acidBreath(Hero hero);
-abstract void battleCry();
         
     public void basicAttack(Hero hero){
         int dmg = 0;       
@@ -84,8 +70,16 @@ abstract void battleCry();
             dmg = Math.max(0,getPhysicalPower());    
             System.out.println("kamu menggunakan Magic Shield!");
             System.out.println("Musuh menggunakan Basic Attack!");
-        } else {}
-             hero.setHp(hero.getHp() - dmg);
+        }
+        else if(x == 4) { 
+            hero.giveUp();
+            System.out.println("Kamu menyerah!");
+        }
+        else {
+            System.out.println("Masukkan angka yang benar!");
+            x = hero.chooseDefenseSkill();
+        }
+        hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());
     }
     
@@ -106,7 +100,15 @@ abstract void battleCry();
             dmg = Math.max(0,getPhysicalPower() * 2); 
             System.out.println("kamu menggunakan Magic Shield!");
             System.out.println("Musuh menggunakan Strike!");
-        } else {}
+        }
+        else if(x == 4) { 
+            hero.giveUp();
+            System.out.println("Kamu menyerah!");
+        }
+        else {
+            System.out.println("Masukkan angka yang benar!");
+            x = hero.chooseDefenseSkill();
+        }
         
         if(x != 2){
              hero.setHp(hero.getHp() - dmg);
@@ -114,56 +116,7 @@ abstract void battleCry();
         }
         else{setHp(getHp() - dmg);}
     }
-    
-    //Magic Attack Imp
-    public void fireball(Hero hero){
-        int dmg;
-        //System.out.println("Musuh menggunakan Fireball!");
-        if(hero.chooseDefenseSkill() == 1){
-            dmg = (getMagicPower() * 2) - hero.getMagicDefense();
-        }
-        else if(hero.chooseDefenseSkill() == 2) {
-            dmg = (getMagicPower() * 2);
-        }
-        else { dmg = getMagicPower();
-        }
-        hero.setHp(hero.getHp() - dmg);
-        System.out.println("Kamu memberikan damage " + dmg + " kepada " + hero.getName());
-    }
-    
-    //Magic Attack Kobold
-    public void poisonDagger(Hero hero){
-        int dmg;
-        //System.out.println(this.getName() + " menggunakan Poison Dagger!");
-        if(hero.chooseDefenseSkill() == 1){
-            dmg = (getPhysicalPower() + (getMagicPower() / 2)) - hero.getMagicDefense();
-        }
-        else if(hero.chooseDefenseSkill() == 2) {
-            dmg = (getPhysicalPower() + (getMagicPower() / 2));
-        }
-        else { dmg = (getPhysicalPower() + (getMagicPower() / 2)) / 2;
-    }
-   }
-    
-    //Magic Attack Bandit
-    public void stealGold(Hero hero){
-        int dmg;
-       //System.out.println("Musuh menggunakan Steal Gold!");
-        if(hero.chooseDefenseSkill() == 1){
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) - hero.getMagicDefense();
-        }
-        else if(hero.chooseDefenseSkill() == 2) {
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10));
-        }
-        else if(hero.chooseDefenseSkill() == 3){ dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) / 2;
-        } else { hero.giveUp();}
-    }
-    
-    //Magic Attack Slime
-    public void splash(){
-        System.out.println("Hmm?? Tidak ada yang terjadi");
-    }
-
+ 
     public String getName() {
         return name;
     }

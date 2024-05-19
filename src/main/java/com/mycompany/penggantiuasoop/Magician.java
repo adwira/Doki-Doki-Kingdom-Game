@@ -66,7 +66,8 @@ public class Magician extends Hero{
     
 
     public void meditate(){
-        
+        this.tempM = getMagicPower();
+        setMagicPower(tempM*2);
     }
 }
 
