@@ -41,8 +41,9 @@ public class Battle {
                 if (heroFirst) {
                     // Hero's turn
                     System.out.println("Hero's Turn");
+                    enemy.defend();
                     hero.attack(enemy); // Call to choose attack skill
-                    enemy.defend(); // Get enemy action first
+                     // Get enemy action first
 
                 } else {
                     // Enemy's turn

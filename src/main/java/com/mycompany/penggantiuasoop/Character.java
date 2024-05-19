@@ -10,7 +10,7 @@ package com.mycompany.penggantiuasoop;
  */
 interface Character {
 //    void attack();
-    void defend();
+    //void defend(Enemy enemy);
     public int chooseAttackSkill();
     public int chooseDefenseSkill();
 //    public void basicAttack();

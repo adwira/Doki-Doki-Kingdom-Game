@@ -53,58 +53,72 @@ public void attack(Hero hero){
         }
     }
 public void basicDefend() {
-        System.out.println(name +" menggunakan skill Basic Defend"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       // System.out.println(name +" menggunakan skill Basic Defend"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void counter() {
-        System.out.println(name +" menggunakan Counter"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //System.out.println(name +" menggunakan Counter"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void magicDefend() {
-        System.out.println(name +" menggunakan Magic Shield"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       // System.out.println(name +" menggunakan Magic Shield"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 abstract void acidBreath(Hero hero);
 abstract void battleCry();
         
     public void basicAttack(Hero hero){
-        int dmg = 0;
-        System.out.println("Musuh menggunakan Basic Attack!");
+        int dmg = 0;       
         int x = hero.chooseDefenseSkill();
         if(x == 1){
             dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
+            System.out.println("kamu menggunakan Defend!");
+            System.out.println("Musuh menggunakan Basic Attack!");
         }
         else if(x == 2) {
             dmg = Math.max(0,getPhysicalPower() * 2);
+            System.out.println("kamu menggunakan Counter!");
+            System.out.println("Musuh menggunakan Basic Attack!");
         }
         else if(x == 3) { 
             dmg = Math.max(0,getPhysicalPower());    
+            System.out.println("kamu menggunakan Magic Shield!");
+            System.out.println("Musuh menggunakan Basic Attack!");
         } else {}
-        hero.setHp(hero.getHp() - dmg);
+             hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());
     }
     
     public void strikeAttack(Hero hero) {
         int dmg = 0;
-        System.out.println("Musuh menggunakan Strike!");
         int x = hero.chooseDefenseSkill();
         if( x == 1){
             dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
+            System.out.println("kamu menggunakan Defend!");
+            System.out.println("Musuh menggunakan Strike!");
         }
         else if(x == 2) {
             dmg = Math.max(0,getPhysicalPower() * 2);
+            System.out.println("kamu menggunakan Counter!");
+            System.out.println("Musuh menggunakan Strike!");
         }
         else if(x == 3) { 
-            dmg = Math.max(0,getPhysicalPower());    
+            dmg = Math.max(0,getPhysicalPower() * 2); 
+            System.out.println("kamu menggunakan Magic Shield!");
+            System.out.println("Musuh menggunakan Strike!");
         } else {}
-        hero.setHp(hero.getHp() - dmg);
+        
+        if(x != 2){
+             hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());
+        }
+        else{setHp(getHp() - dmg);}
     }
     
     //Magic Attack Imp
     public void fireball(Hero hero){
         int dmg;
-        System.out.println("Musuh menggunakan Fireball!");
+        //System.out.println("Musuh menggunakan Fireball!");
         if(hero.chooseDefenseSkill() == 1){
             dmg = (getMagicPower() * 2) - hero.getMagicDefense();
         }
@@ -120,7 +134,7 @@ abstract void battleCry();
     //Magic Attack Kobold
     public void poisonDagger(Hero hero){
         int dmg;
-        System.out.println(this.getName() + " menggunakan Poison Dagger!");
+        //System.out.println(this.getName() + " menggunakan Poison Dagger!");
         if(hero.chooseDefenseSkill() == 1){
             dmg = (getPhysicalPower() + (getMagicPower() / 2)) - hero.getMagicDefense();
         }
@@ -134,7 +148,7 @@ abstract void battleCry();
     //Magic Attack Bandit
     public void stealGold(Hero hero){
         int dmg;
-       System.out.println("Musuh menggunakan Steal Gold!");
+       //System.out.println("Musuh menggunakan Steal Gold!");
         if(hero.chooseDefenseSkill() == 1){
             dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) - hero.getMagicDefense();
         }

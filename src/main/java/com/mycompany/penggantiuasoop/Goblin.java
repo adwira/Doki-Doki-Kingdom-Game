@@ -66,16 +66,21 @@ class Goblin extends Enemy{
         @Override
       public void acidBreath(Hero hero) {
         int dmg = 0;
-        System.out.println("Musuh menggunakan Acid Breath!");
         int x = hero.chooseDefenseSkill();
         if(x == 1){
             dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)) - hero.getMagicDefense());
+            System.out.println("kamu menggunakan Defend!");
+            System.out.println("Musuh menggunakan Acid Breath!");
         }
         else if(x == 2) {
             dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)));
+            System.out.println("kamu menggunakan Counter!");
+            System.out.println("Musuh menggunakan Acid Breath!");
         }
         else if (x == 3){ 
-            dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)));
+            dmg = Math.max(0,((getMagicPower() + (getPhysicalDefense() / 2)) / 2));
+            System.out.println("kamu menggunakan Defend!");
+            System.out.println("Musuh menggunakan Acid Breath!");
         } else {}
         hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());  
