@@ -99,7 +99,8 @@ abstract void buff(Hero hero);
              hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());
         }
-        else{setHp(getHp() - dmg);}
+        else{setHp(getHp() - dmg);
+        System.out.println("Musuh terkena damage Counter" + dmg);}
     }
  
     public String getName() {

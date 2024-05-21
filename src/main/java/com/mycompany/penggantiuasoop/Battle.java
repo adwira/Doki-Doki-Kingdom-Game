@@ -15,9 +15,6 @@ public class Battle {
     public Battle(Hero hero) {
         this.hero = hero;
         this.random = new Random();
-        // Add enemies to the list here (e.g., using constructors)
-        //enemies.add(new Goblin("Goblin", 50, 1, 10, 5, 5, 5, 5));
-        //enemies.add(new Goblin("Goblin Grunt", 50, 1, 10, 5, 5, 5, 5));
     }
     
     public void attack(Enemy enemy) {
@@ -51,9 +48,7 @@ public class Battle {
         System.out.println("Kamu Melawan " + enemy.getName());
         printTurnSummary(hero, enemy);
         while (true) {
-            // Choose a random enemy from the list
 
-            // Determine turn order (optional)
             boolean heroFirst = random.nextBoolean();
             String turnMessage = heroFirst ? "FIRST" : "LAST";
             System.out.println("Turn: " + turnMessage);
@@ -62,24 +57,24 @@ public class Battle {
             while (true) {
                 if (heroFirst) {
                     // Hero's turn
-                    System.out.println("Hero's Turn");
+                    System.out.println("Giliran Kamu");
                     attack(enemy);
 
                 } else {
                     // Enemy's turn
-                    System.out.println("Enemy's Turn");                   
+                    System.out.println("Giliran Musuh");                   
                     attack(hero);
                 }
-
+                System.out.println();
                 printTurnSummary(hero, enemy);
 
                 // Check for win/lose condition
                 if (hero.getHp() <= 0) {
-                    System.out.println("Hero is defeated!");
+                    System.out.println("Kamu Kalah!!!!");
                     break;
                 } 
                 else if (enemy.getHp() <= 0) {
-                    System.out.println(enemy.getName() + " is defeated!");
+                    System.out.println(enemy.getName() + " telah dikalahkan!");
                     break;
                 }
 
@@ -98,17 +93,9 @@ public class Battle {
         summary += String.format("PD    : %-30s PD    : %-30s\n", hero.getPhysicalDefense(), enemy.getPhysicalDefense());
         summary += String.format("MP    : %-30s MP    : %-30s\n", hero.getMagicPower(), enemy.getMagicPower());
         summary += String.format("MD    : %-30s MD    : %-30s\n", hero.getMagicDefense(), enemy.getMagicDefense());
-        
-        // You can add more status information as needed
-        // ... (e.g., mana, defense, attack power, etc.)
+
         System.out.println(summary);
     }
 }
    
-
-
-
-
-
-  // ... (Other methods from the original Battle class can be added here)
 
