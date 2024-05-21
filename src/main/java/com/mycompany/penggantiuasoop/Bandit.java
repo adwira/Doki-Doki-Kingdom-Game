@@ -4,7 +4,6 @@
  */
 package com.mycompany.penggantiuasoop;
 
-import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,21 +17,7 @@ class Bandit extends Enemy {
     public Bandit(String name, int hp, int level, int gold, int physicalPower, int magicPower, int pDefense, int mgDefense) {
         super(name, hp, level, gold, physicalPower, magicPower, pDefense, mgDefense);
     }
-
-    @Override
-    public void attack(Hero hero) {
-        int skillChoice = chooseAttackSkill();
-        switch (skillChoice) {
-            case 1 ->
-                basicAttack(hero);
-
-            case 2 ->
-                strikeAttack(hero);
-
-            case 3 ->
-                stealGold(hero);
-        }
-    }
+    int tempP;
 
     @Override
     public int chooseAttackSkill() {
@@ -40,7 +25,7 @@ class Bandit extends Enemy {
         actions.add(1); // Basic Attack
         actions.add(2); // Strike Attack
         actions.add(3); // Acid Breath
-//    actions.add(4); // Battle Cry
+        actions.add(4); // Exercise
 
         Random random = new Random();
         int randomIndex = random.nextInt(actions.size());
@@ -60,28 +45,52 @@ class Bandit extends Enemy {
         return actions.get(randomIndex);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void stealGold(Hero hero) {
-        int dmg;
+    @Override
+    public void skillSpecial(Hero hero) {
+        int dmg = 0;
         int x = hero.chooseDefenseSkill();
         //System.out.println("Musuh menggunakan Steal Gold!");
-        if (x == 1) {
-            dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10)) - hero.getMagicDefense();
-            System.out.println("Kamu menggunakan Defend!");
-            System.out.println("Musuh menggunakan Steal Gold!");
-        } else if (x == 2) {
-            dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10));
-            System.out.println("Kamu menggunakan Counter!");
-            System.out.println("Musuh menggunakan Steal Gold!");
-        } else if (x == 3) {
-            dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10)) / 2;
-            System.out.println("Kamu menggunakan Defend!");
-            System.out.println("Musuh menggunakan Steal Gold!");
-        } else if (x == 4) {
-            hero.giveUp();
-            System.out.println("Kamu menyerah!");
-        } else {
-            System.out.println("Masukkan angka yang benar!");
-            x = hero.chooseDefenseSkill();
+        switch (x) {
+            case 1 -> {
+                dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10)) - hero.getMagicDefense();
+                System.out.println("Kamu menggunakan Defend!");
+                System.out.println("Musuh menggunakan Steal Gold!");
+            }
+            case 2 -> {
+                dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10));
+                System.out.println("Kamu menggunakan Counter!");
+                System.out.println("Musuh menggunakan Steal Gold!");
+            }
+            case 3 -> {
+                dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10)) / 2;
+                System.out.println("Kamu menggunakan Defend!");
+                System.out.println("Musuh menggunakan Steal Gold!");
+            }
+            case 4 -> {
+                hero.giveUp();
+                System.out.println("Kamu menyerah!");
+            }
+            default -> {
+                System.out.println("Masukkan angka yang benar!");
+                x = hero.chooseDefenseSkill();
+            }
         }
+        hero.setHp(hero.getHp() - dmg);
+        System.out.println("Kamu memberikan damage " + dmg + " kepada " + hero.getName());
     }
+    
+    @Override
+    public void buff(Hero hero){
+        int x = hero.chooseDefenseSkill();
+        switch (x) {
+            case 1 -> System.out.println("kamu menggunakan Defend!");
+            case 2 -> System.out.println("kamu menggunakan Counter!");
+            case 3 -> System.out.println("kamu menggunakan Magic Shield!");
+            default -> {
+            }
+        }
+        System.out.println(name +" menggunakan skill Exercise");
+            this.tempP = getPhysicalPower();
+            setPhysicalPower(tempP*2);
+        }
 }

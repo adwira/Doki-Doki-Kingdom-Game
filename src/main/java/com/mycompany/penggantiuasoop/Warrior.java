@@ -26,51 +26,7 @@ public class Warrior extends Hero{
     }
     
     @Override
-    public void attack(Enemy enemy) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'attack'");
-        int skillChoice = chooseAttackSkill();
-        switch (skillChoice) {
-            case 1:
-            basicAttack(enemy);
-            break; 
-
-            case 2:
-            strikeAttack(enemy);
-            break;
-
-            case 3:
-            pickpocket(enemy);
-            break;
-
-            case 4:
-            muscle();
-            break;
-        }
-    }
-    
-    public void pickpocket(Enemy enemy){
-       int dmg = 0;
-       int x = enemy.chooseDefenseSkill();
-        if(x == 1){
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) - enemy.getMagicDefense();
-            System.out.println("Musuh menggunakan Defend!");
-            System.out.println("Musuh menggunakan Pickpocket!");
-        }
-        else if(x == 2) {
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10));
-            System.out.println("Musuh menggunakan Counter!");
-            System.out.println("Musuh menggunakan Pickpocket!");
-        }
-        else if(x == 3) { 
-            dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) / 2;
-            System.out.println("Musuh menggunakan Magic Shield!");
-            System.out.println("Musuh menggunakan Pickpocket!");
-        }
-        enemy.setHp(enemy.getHp() - dmg);
-        System.out.println("Kamu memberikan damage " + dmg + " kepada " + enemy.getName());
-    }
-        public void runeSword(Enemy enemy){
+        public void skillSpecial(Enemy enemy){
         int dmg = 0;
         int x = enemy.chooseDefenseSkill();
         if(x == 1){
@@ -92,7 +48,8 @@ public class Warrior extends Hero{
         System.out.println("Kamu memberikan damage " + dmg + " kepada " + enemy.getName());
     }
     
-    public void muscle(){
+    @Override
+    public void buff(){
         this.tempM = getPhysicalPower();
         this.tempN = getPhysicalDefense();
         setPhysicalPower(tempM*3/2);

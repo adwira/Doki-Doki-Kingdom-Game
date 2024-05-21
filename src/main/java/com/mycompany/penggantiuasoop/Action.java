@@ -19,51 +19,80 @@ public class Action {
         int physicalDefense;
         int magicDefend;
         String type;
-        
-        // Ketika Basic Attack bertemu dengan Basic Defend
-    public void atkdef(Hero hero, Enemy enemy) {
-        dmg = physicalPower - physicalDefense;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
-    }
-        //Ketika Basic Attack bertemu dengan Counter
-    public void atkcounter(Hero hero, Enemy enemy) {
-        dmg = physicalPower * 2;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
-    }
-        //Ketika Basic Attack Bertemu dengan Magic Defend
-    public void atkm_def(Hero hero, Enemy enemy) {
-        dmg = physicalPower;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
-    }
-    
-    // Jika Give Up maka seluruh gold habis
-    public void giveUp(int gold) {
+     
+            public void giveUp(int gold) {
         gold = 0;
 
     }
+        // Ketika Basic Attack bertemu dengan Basic Defend
+    public int atkdef(String name1,String name2, int hp2, int physicalPower, int physicalDefense) {
+        dmg = physicalPower - physicalDefense;
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
+    }
+        //Ketika Basic Attack bertemu dengan Counter
+    public int atkcounter(String name1,String name2, int hp2, int physicalPower) {
+        dmg = physicalPower * 2;
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
+    }
+        //Ketika Basic Attack Bertemu dengan Magic Defend
+    public int atkm_def(String name1,String name2, int hp2, int physicalPower) {
+        dmg = physicalPower;
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
+    }
+    
+    // Jika Give Up maka seluruh gold habis
+
     
     //Ketika Magic Attack bertemu dengan Basic Defend
-    public void mgskilldef(Hero hero, Enemy enemy) {
-        dmg = magicPower;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
+    public int mgskilldef(String name1,String name2, int hp2, int magicPower, int magicDefense) {
+        dmg = magicPower - magicDefense;
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
     }
     //Ketika Magic Attack bertemu dengan Counter
-    public void mgskillcounter(Hero hero, Enemy enemy) {
+    public int mgskillcounter(String name1,String name2, int hp2, int magicPower) {
         dmg = magicPower;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
     }
     //Ketika Magic Attack bertemu dengan Magic Defend
-    public void mgskillmdef(Hero hero, Enemy enemy) {
+    public int mgskillmdef(String name1,String name2, int hp2, int magicPower) {
         dmg =  magicPower / 2;
-        enemy.hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
     }
     
+
+    //Ketika Strike Bertemu dengan Basic Defend
+    public int strikedef(String name1,String name2, int hp2, int physicalPower, int physicalDefense) {
+        dmg =  physicalPower * 2 - physicalDefense;
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
+    }
+    //Ketika Strike Bertemu dengan Counter, maka yang damage akan di
+    public int strikecounter(String name1,String name2, int hp2, int physicalPower) {
+        dmg =  physicalPower * 2;
+        hp2 -= dmg;
+        System.out.println(name1 + "menerima" + dmg + "damage");
+        return hp2;
+    }
+    //Ketika Strike Bertemu dengan Magic Defend
+    public int strikem_def(String name1,String name2, int hp2, int physicalPower) {
+        dmg =  physicalPower * 2;
+        hp2 -= dmg;
+        System.out.println(name2 + "menerima" + dmg + "damage");
+        return hp2;
+    }
     //Magic Attack Hero Thief
     public void pickpocket(Hero hero, Enemy enemy) {
         dmg =  physicalPower * (1 / 10 * gold);
@@ -82,23 +111,4 @@ public class Action {
         hp -= dmg;
         System.out.println(name + "menerima" + dmg + "damage");
     }
-    //Ketika Strike Bertemu dengan Basic Defend
-    public void strikedef(Hero hero, Enemy enemy) {
-        dmg =  physicalPower * 2 - physicalDefense;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
-    }
-    //Ketika Strike Bertemu dengan Counter, maka yang damage akan di
-    public void strikecounter(Hero hero, Enemy enemy) {
-        dmg =  physicalPower * 2;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
-    }
-    //Ketika Strike Bertemu dengan Magic Defend
-    public void strikem_def(Hero hero, Enemy enemy) {
-        dmg =  physicalPower * 2;
-        hp -= dmg;
-        System.out.println(name + "menerima" + dmg + "damage");
-    }
-
 }

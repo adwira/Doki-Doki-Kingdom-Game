@@ -31,53 +31,36 @@ abstract class Enemy implements Character{
     }
     
 
-public void defend(){
-        int defendChoice = chooseDefenseSkill();
-        switch (defendChoice) {
-            case 1 -> basicDefend();
-            case 2 -> counter();
-            case 3 -> magicDefend();
-        }
-    }
-
-abstract void attack(Hero hero);
-public void basicDefend() {
-       // System.out.println(name +" menggunakan skill Basic Defend"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    public void counter() {
-        //System.out.println(name +" menggunakan Counter"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    public void magicDefend() {
-       // System.out.println(name +" menggunakan Magic Shield"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+abstract void skillSpecial(Hero hero);
+abstract void buff(Hero hero);
         
     public void basicAttack(Hero hero){
         int dmg = 0;       
         int x = hero.chooseDefenseSkill();
-        if(x == 1){
-            dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
-            System.out.println("kamu menggunakan Defend!");
-            System.out.println("Musuh menggunakan Basic Attack!");
-        }
-        else if(x == 2) {
-            dmg = Math.max(0,getPhysicalPower() * 2);
-            System.out.println("kamu menggunakan Counter!");
-            System.out.println("Musuh menggunakan Basic Attack!");
-        }
-        else if(x == 3) { 
-            dmg = Math.max(0,getPhysicalPower());    
-            System.out.println("kamu menggunakan Magic Shield!");
-            System.out.println("Musuh menggunakan Basic Attack!");
-        }
-        else if(x == 4) { 
-            hero.giveUp();
-            System.out.println("Kamu menyerah!");
-        }
-        else {
-            System.out.println("Masukkan angka yang benar!");
-            x = hero.chooseDefenseSkill();
+        switch (x) {
+            case 1 -> {
+                dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
+                System.out.println("kamu menggunakan Defend!");
+                System.out.println("Musuh menggunakan Basic Attack!");
+            }
+            case 2 -> {
+                dmg = Math.max(0,getPhysicalPower() * 2);
+                System.out.println("kamu menggunakan Counter!");
+                System.out.println("Musuh menggunakan Basic Attack!");
+            }
+            case 3 -> {
+                dmg = Math.max(0,getPhysicalPower());
+                System.out.println("kamu menggunakan Magic Shield!");
+                System.out.println("Musuh menggunakan Basic Attack!");
+            }
+            case 4 -> {
+                hero.giveUp();
+                System.out.println("Kamu menyerah!");
+            }
+            default -> {
+                System.out.println("Masukkan angka yang benar!");
+                x = hero.chooseDefenseSkill();
+            }
         }
         hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());
@@ -86,28 +69,30 @@ public void basicDefend() {
     public void strikeAttack(Hero hero) {
         int dmg = 0;
         int x = hero.chooseDefenseSkill();
-        if( x == 1){
-            dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
-            System.out.println("kamu menggunakan Defend!");
-            System.out.println("Musuh menggunakan Strike!");
-        }
-        else if(x == 2) {
-            dmg = Math.max(0,getPhysicalPower() * 2);
-            System.out.println("kamu menggunakan Counter!");
-            System.out.println("Musuh menggunakan Strike!");
-        }
-        else if(x == 3) { 
-            dmg = Math.max(0,getPhysicalPower() * 2); 
-            System.out.println("kamu menggunakan Magic Shield!");
-            System.out.println("Musuh menggunakan Strike!");
-        }
-        else if(x == 4) { 
-            hero.giveUp();
-            System.out.println("Kamu menyerah!");
-        }
-        else {
-            System.out.println("Masukkan angka yang benar!");
-            x = hero.chooseDefenseSkill();
+        switch (x) {
+            case 1 -> {
+                dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
+                System.out.println("kamu menggunakan Defend!");
+                System.out.println("Musuh menggunakan Strike!");
+            }
+            case 2 -> {
+                dmg = Math.max(0,getPhysicalPower() * 2);
+                System.out.println("kamu menggunakan Counter!");
+                System.out.println("Musuh menggunakan Strike!");
+            }
+            case 3 -> {
+                dmg = Math.max(0,getPhysicalPower() * 2);
+                System.out.println("kamu menggunakan Magic Shield!");
+                System.out.println("Musuh menggunakan Strike!");
+            }
+            case 4 -> {
+                hero.giveUp();
+                System.out.println("Kamu menyerah!");
+            }
+            default -> {
+                System.out.println("Masukkan angka yang benar!");
+                x = hero.chooseDefenseSkill();
+            }
         }
         
         if(x != 2){

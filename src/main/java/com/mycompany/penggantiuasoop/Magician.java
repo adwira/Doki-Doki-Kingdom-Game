@@ -24,36 +24,16 @@ public class Magician extends Hero{
 
     }
     
-    @Override
-    public void attack(Enemy enemy) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'attack'");
-        int skillChoice = chooseAttackSkill();
-        switch (skillChoice) {
-            case 1:
-            basicAttack(enemy);
-            break; 
-
-            case 2:
-            strikeAttack(enemy);
-            break;
-
-            case 3:
-            scorch(enemy);
-            break;
-
-            case 4:
-            meditate();
-            break;
-        }
-    }
     
-    public void scorch(Enemy enemy){
+    
+    @Override
+    public void skillSpecial(Enemy enemy){
             int dmg;
             int x = enemy.chooseDefenseSkill();
             System.out.println("Kamu menggunakan Scorch!");
             if(x == 1){
                 dmg = (getMagicPower() * 2) - enemy.getMagicDefense();
+                
             }
             else if(x == 2) {
                 dmg = (getMagicPower() * 2);
@@ -64,8 +44,10 @@ public class Magician extends Hero{
             System.out.println("Kamu memberikan damage " + dmg + " kepada " + enemy.getName());
         }
     
-
-    public void meditate(){
+    
+    
+    @Override
+    public void buff(){
         this.tempM = getMagicPower();
         setMagicPower(tempM*2);
     }

@@ -37,28 +37,9 @@ abstract class Hero implements Character{
 //    @Override
 //    public abstract void defend();
     
+    abstract void skillSpecial(Enemy enemy);
+    abstract void buff();
     
-    abstract void attack(Enemy enemy);
-
-     public void defend(Enemy enemy) {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'defend'");
-        int defendChoice = chooseDefenseSkill();
-        switch (defendChoice) {
-            case 1:
-            basicDefend(enemy);
-            break;
-            case 2:
-            counter(enemy);
-            break;
-            case 3:
-            magicDefend(enemy);
-            break;
-            case 4:
-            giveUp();
-            break;
-        }
-    }
      
     public void basicAttack(Enemy enemy){
         int dmg;
@@ -106,49 +87,11 @@ abstract class Hero implements Character{
     }
     public void giveUp() {
         setGold(0);
-    }
+        System.out.println("Kamu Menyerah cemen lu");
+        }
 
-    public void basicDefend(Enemy enemy){
-        int x = enemy.chooseDefenseSkill();
-       System.out.println("Kamu menggunakan Defend!");
-       if(x == 1){
-           //System.out.println(enemy.getName() +" menggunakan Basic Attack!");
-       }
-       else if(x == 2){
-           //System.out.println(enemy.getName() +" menggunakan Strike!");
-       }
-       else if(x == 3){
-           //System.out.println(enemy.getName() +" menggunakan Magic Attack!");
-       } else {}
-       
-    }
     
-    public void counter(Enemy enemy){
-        int x = enemy.chooseDefenseSkill();  
-        //System.out.println("Kamu menggunakan Counter!");
-        if(x == 1){
-           //System.out.println(enemy.getName() +" menggunakan Basic Attack!");
-       }
-       else if(x == 2){
-           //System.out.println(enemy.getName() +" menggunakan Strike!");
-       }
-       else if(x == 3){
-           //System.out.println(enemy.getName() +" menggunakan Magic Attack!");
-       } else {}
-    }
-    public void magicDefend(Enemy enemy){
-        int x = enemy.chooseDefenseSkill();
-        //System.out.println("Kamu menggunakan Magic Shield!");
-        if(x == 1){
-           System.out.println(enemy.getName() +" menggunakan Basic Attack!");
-       }
-       else if(x == 2){
-           System.out.println(enemy.getName() +" menggunakan Strike!");
-       }
-       else if(x == 3){
-           System.out.println(enemy.getName() +" menggunakan Magic Attack!");
-       } else {}
-    }
+
     
     public String getName() {
         return name;

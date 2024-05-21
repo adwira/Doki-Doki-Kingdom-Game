@@ -13,6 +13,7 @@ interface Character {
     //void defend(Enemy enemy);
     public int chooseAttackSkill();
     public int chooseDefenseSkill();
+    
 //    public void basicAttack();
 //    public void strikeAttack();
 //    public void basicDefend();

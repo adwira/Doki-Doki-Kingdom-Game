@@ -18,30 +18,9 @@ class Barbarian extends Enemy{
     int tempPd;
     int tempPw;
     
-        public void battleCry(){
-        System.out.println(name +" menggunakan skill Battle Cry");
-        this.tempPw = getPhysicalPower();
-        this.tempPd = getPhysicalDefense();
-        setPhysicalPower(getPhysicalPower() * 3/2);
-        setPhysicalDefense(getPhysicalDefense() * 1/2);
-    }
-  
-    @Override
-    public void attack(Hero hero){
-         int skillChoice = chooseAttackSkill();
-        switch (skillChoice) {
-            case 1 -> basicAttack(hero);
-
-            case 2 -> strikeAttack(hero);
-
-            case 3 -> acidBreath(hero);
-
-//            case 4 -> battleCry();
-        }
-    }
-
     //CHOOSE ACTION DEFENSE
    
+    @Override
     public int chooseAttackSkill() {
         List<Integer> actions = new ArrayList<>();
     actions.add(1); // Basic Attack
@@ -69,7 +48,8 @@ class Barbarian extends Enemy{
     return actions.get(randomIndex);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-      public void acidBreath(Hero hero) {
+    @Override
+      public void skillSpecial(Hero hero) {
         int dmg = 0;
         int x = hero.chooseDefenseSkill();
         if(x == 1){
@@ -90,5 +70,21 @@ class Barbarian extends Enemy{
         hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());  
     }
-
+          
+    @Override
+        public void buff(Hero hero){
+        int x = hero.chooseDefenseSkill();
+        switch (x) {
+            case 1 -> System.out.println("kamu menggunakan Defend!");
+            case 2 -> System.out.println("kamu menggunakan Counter!");
+            case 3 -> System.out.println("kamu menggunakan Defend!");
+            default -> {
+            }
+        }
+        System.out.println(name +" menggunakan skill Battle Cry");
+        this.tempPw = getPhysicalPower();
+        this.tempPd = getPhysicalDefense();
+        setPhysicalPower(getPhysicalPower() * 3/2);
+        setPhysicalDefense(getPhysicalDefense() * 1/2);
+    }
 }

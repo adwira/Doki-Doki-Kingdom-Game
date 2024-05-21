@@ -4,32 +4,53 @@
  */
 package com.mycompany.penggantiuasoop;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Battle {
 
     private Hero hero;
-    private List<Enemy> enemies; // List to store enemy instances
+    private Enemy enemy;
     private Random random;
-    private Scanner scanner;
 
     public Battle(Hero hero) {
         this.hero = hero;
-        this.enemies = new ArrayList<>();
         this.random = new Random();
-        this.scanner = new Scanner(System.in);
         // Add enemies to the list here (e.g., using constructors)
-        enemies.add(new Goblin("Goblin", 50, 1, 10, 5, 5, 5, 5));
-        enemies.add(new Goblin("Goblin Grunt", 50, 1, 10, 5, 5, 5, 5));
+        //enemies.add(new Goblin("Goblin", 50, 1, 10, 5, 5, 5, 5));
+        //enemies.add(new Goblin("Goblin Grunt", 50, 1, 10, 5, 5, 5, 5));
     }
+    
+    public void attack(Enemy enemy) {
+        int skillChoice = hero.chooseAttackSkill();
+        switch (skillChoice) {
+            case 1 -> hero.basicAttack(enemy); 
 
-    public void start() {
+            case 2 -> hero.strikeAttack(enemy);
+
+            case 3 -> hero.skillSpecial(enemy);
+
+            case 4 -> hero.buff();
+        }
+    }
+    
+    public void attack(Hero hero) {
+        int skillChoice = enemy.chooseAttackSkill();
+        System.out.println("com.mycompany.penggantiuasoop.Battle.attack()"+skillChoice);
+        switch (skillChoice) {
+            case 1 -> enemy.basicAttack(hero); 
+
+            case 2 -> enemy.strikeAttack(hero);
+
+            case 3 -> enemy.skillSpecial(hero);
+
+            case 4 -> enemy.buff(hero);
+        }
+    }
+    
+    public void start(Enemy enemy) {
+        this.enemy = enemy;
         while (true) {
             // Choose a random enemy from the list
-            Enemy enemy = enemies.get(random.nextInt(enemies.size()));
 
             // Determine turn order (optional)
             boolean heroFirst = random.nextBoolean();
@@ -41,35 +62,23 @@ public class Battle {
                 if (heroFirst) {
                     // Hero's turn
                     System.out.println("Hero's Turn");
-                    enemy.defend();
-                    hero.attack(enemy); // Call to choose attack skill
-                     // Get enemy action first
+                    attack(enemy);
 
                 } else {
                     // Enemy's turn
-                    System.out.println("Enemy's Turn");
-                    
-                    enemy.attack(hero);
-                    // Get hero action after enemy attack
-                    // No need to switch on hero action as it's already handled in Hero's attack method
+                    System.out.println("Enemy's Turn");                   
+                    attack(hero);
                 }
 
                 printTurnSummary(hero, enemy);
 
                 // Check for win/lose condition
-                int x = hero.chooseDefenseSkill();
                 if (hero.getHp() <= 0) {
                     System.out.println("Hero is defeated!");
                     break;
                 } 
-                else if (x == 4){
-                    hero.giveUp();
-                    enemies.remove(enemy);
-                    System.out.println("Cemen lu bang!");
-                }
                 else if (enemy.getHp() <= 0) {
                     System.out.println(enemy.getName() + " is defeated!");
-                    enemies.remove(enemy); // Remove defeated enemy from list
                     break;
                 }
 
@@ -77,10 +86,6 @@ public class Battle {
             }
 
             // Check for remaining enemies
-            if (enemies.isEmpty()) {
-                System.out.println("You have defeated all enemies! Congratulations!");
-                break;
-            }
         }
     }
 

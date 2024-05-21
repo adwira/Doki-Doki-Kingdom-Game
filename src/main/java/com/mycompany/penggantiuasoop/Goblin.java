@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.penggantiuasoop;
-import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,37 +16,16 @@ class Goblin extends Enemy{
     }
     int tempPd;
     int tempPw;
-    
-    
-        public void battleCry(){
-        System.out.println(name +" menggunakan skill Battle Cry");
-        this.tempPw = getPhysicalPower();
-        this.tempPd = getPhysicalDefense();
-        setPhysicalPower(getPhysicalPower() * 3/2);
-        setPhysicalDefense(getPhysicalDefense() * 1/2);
-    }
-  
-    @Override
-    public void attack(Hero hero){
-         int skillChoice = chooseAttackSkill();
-        switch (skillChoice) {
-            case 1 -> basicAttack(hero);
-
-            case 2 -> strikeAttack(hero);
-
-            case 3 -> acidBreath(hero);
-
-        }
-    }
 
     //CHOOSE ACTION DEFENSE
    
+    @Override
     public int chooseAttackSkill() {
         List<Integer> actions = new ArrayList<>();
     actions.add(1); // Basic Attack
     actions.add(2); // Strike Attack
     actions.add(3); // Acid Breath
-//    actions.add(4); // Battle Cry
+    actions.add(4); // Battle Cry
 
     Random random = new Random();
     int randomIndex = random.nextInt(actions.size());
@@ -70,25 +48,55 @@ class Goblin extends Enemy{
     }
     
     
-      public void acidBreath(Hero hero) {
+    @Override
+      public void skillSpecial(Hero hero) {
         int dmg = 0;
         int x = hero.chooseDefenseSkill();
-        if(x == 1){
-            dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)) - hero.getMagicDefense());
-            System.out.println("kamu menggunakan Defend!");
-            System.out.println("Musuh menggunakan Acid Breath!");
+        switch (x) {
+            case 1:
+                dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)) - hero.getMagicDefense());
+                System.out.println("kamu menggunakan Defend!");
+                System.out.println("Musuh menggunakan Acid Breath!");
+                break;
+            case 2:
+                dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)));
+                System.out.println("kamu menggunakan Counter!");
+                System.out.println("Musuh menggunakan Acid Breath!");
+                break;
+            case 3:
+                dmg = Math.max(0,((getMagicPower() + (getPhysicalDefense() / 2)) / 2));
+                System.out.println("kamu menggunakan Defend!");
+                System.out.println("Musuh menggunakan Acid Breath!");
+                break;
+            case 4: hero.giveUp();
+            default: 
+                break;
         }
-        else if(x == 2) {
-            dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)));
-            System.out.println("kamu menggunakan Counter!");
-            System.out.println("Musuh menggunakan Acid Breath!");
-        }
-        else if (x == 3){ 
-            dmg = Math.max(0,((getMagicPower() + (getPhysicalDefense() / 2)) / 2));
-            System.out.println("kamu menggunakan Defend!");
-            System.out.println("Musuh menggunakan Acid Breath!");
-        } else {}
         hero.setHp(hero.getHp() - dmg);
         System.out.println("Musuh memberikan damage " + dmg + " kepada " + hero.getName());  
+    }
+          
+    @Override
+        public void buff(Hero hero){
+        int x = hero.chooseDefenseSkill();
+        switch (x) {
+            case 1:
+                System.out.println("kamu menggunakan Defend!");
+                break;
+            case 2:
+                System.out.println("kamu menggunakan Counter!");
+                break;
+            case 3:
+                System.out.println("kamu menggunakan Defend!");
+                break;
+            case 4: hero.giveUp();
+            default:
+                break;
+        }
+        System.out.println(name +" menggunakan skill Battle Cry");
+        this.tempPw = getPhysicalPower();
+        this.tempPd = getPhysicalDefense();
+        setPhysicalPower(getPhysicalPower() * 3/2);
+        setPhysicalDefense(getPhysicalDefense() * 1/2);
     }
 }
