@@ -48,6 +48,8 @@ public class Battle {
     
     public void start(Enemy enemy) {
         this.enemy = enemy;
+        System.out.println("Kamu Melawan " + enemy.getName());
+        printTurnSummary(hero, enemy);
         while (true) {
             // Choose a random enemy from the list
 
@@ -88,13 +90,14 @@ public class Battle {
 
     private void printTurnSummary(Hero hero, Enemy enemy) {
         // Format the summary using String.format()
-        String summary = String.format("%-30s %-30s\n", hero.getName(), enemy.getName());
-        summary += String.format("HP : %-30s HP : %-30s\n", hero.getHp(), enemy.getHp());
+        String summary = String.format("%-30s        %-30s\n", hero.getName(), enemy.getName());
+        summary += String.format("HP    : %-30s HP    : %-30s\n", hero.getHp(), enemy.getHp());
         summary += String.format("Level : %-30s Level : %-30s\n", hero.getLevel(), enemy.getLevel());
-        summary += String.format("PP : %-30s PP : %-30s\n", hero.getPhysicalPower(), enemy.getPhysicalPower());
-        summary += String.format("PD : %-30s PD : %-30s\n", hero.getPhysicalDefense(), enemy.getPhysicalDefense());
-        summary += String.format("MP : %-30s MP : %-30s\n", hero.getMagicPower(), enemy.getMagicPower());
-        summary += String.format("MD : %-30s MD : %-30s\n", hero.getMagicDefense(), enemy.getMagicDefense());
+        summary += String.format("Gold  : \n", hero.getGold());
+        summary += String.format("PP    : %-30s PP    : %-30s\n", hero.getPhysicalPower(), enemy.getPhysicalPower());
+        summary += String.format("PD    : %-30s PD    : %-30s\n", hero.getPhysicalDefense(), enemy.getPhysicalDefense());
+        summary += String.format("MP    : %-30s MP    : %-30s\n", hero.getMagicPower(), enemy.getMagicPower());
+        summary += String.format("MD    : %-30s MD    : %-30s\n", hero.getMagicDefense(), enemy.getMagicDefense());
         
         // You can add more status information as needed
         // ... (e.g., mana, defense, attack power, etc.)
