@@ -35,7 +35,6 @@ public class Battle {
     
     public void attack(Hero hero) {
         int skillChoice = enemy.chooseAttackSkill();
-        System.out.println("com.mycompany.penggantiuasoop.Battle.attack()"+skillChoice);
         switch (skillChoice) {
             case 1 -> enemy.basicAttack(hero); 
 
@@ -84,17 +83,19 @@ public class Battle {
 
                 heroFirst = !heroFirst;
             }
-
-            // Check for remaining enemies
         }
     }
 
     private void printTurnSummary(Hero hero, Enemy enemy) {
         // Format the summary using String.format()
         String summary = String.format("%-30s %-30s\n", hero.getName(), enemy.getName());
-        summary += String.format("%-30s %-30s\n", hero.getHp(), enemy.getHp());
-        summary += String.format("%-30s %-30s\n", hero.getLevel(), enemy.getLevel());
-
+        summary += String.format("HP : %-30s HP : %-30s\n", hero.getHp(), enemy.getHp());
+        summary += String.format("Level : %-30s Level : %-30s\n", hero.getLevel(), enemy.getLevel());
+        summary += String.format("PP : %-30s %-30s\n", hero.getPhysicalPower(), enemy.getPhysicalPower());
+        summary += String.format("%-30s %-30s\n", hero.getPhysicalDefense(), enemy.getPhysicalDefense());
+        summary += String.format("%-30s %-30s\n", hero.getMagicPower(), enemy.getMagicPower());
+        summary += String.format("%-30s %-30s\n", hero.getMagicDefense(), enemy.getMagicDefense());
+        
         // You can add more status information as needed
         // ... (e.g., mana, defense, attack power, etc.)
         System.out.println(summary);

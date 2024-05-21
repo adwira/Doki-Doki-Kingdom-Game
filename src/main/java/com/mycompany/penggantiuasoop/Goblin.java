@@ -29,7 +29,7 @@ class Goblin extends Enemy{
 
     Random random = new Random();
     int randomIndex = random.nextInt(actions.size());
-    return actions.get(randomIndex);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    return actions.get(randomIndex);
     }
     
 
