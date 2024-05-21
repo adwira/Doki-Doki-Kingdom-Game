@@ -10,18 +10,43 @@ public class Magician extends Hero{
     }
 
     int tempM;
+    
     @Override
-    public int chooseAttackSkill() {
-         System.out.println("Pilih Skill Serangan (attack/strike/scorch/meditate):");
-        return scanner.nextInt();
- 
+ public int chooseAttackSkill() {
+        char input ;
+        int ascii, intInput;
+        String temp;
+        System.out.println("Pilih Skill Serangan (Basic Attack/Strike/Scorch/Meditate):");
+        do{
+            System.out.println("masuk pak eko");
+            temp = scanner.nextLine();
+            input = temp.charAt(0);
+            ascii = (int)input;
+            System.out.println("ascii " + ascii);
+        } while(ascii < 49 || ascii > 52);
+        
+        intInput = Integer.parseInt(temp);
+        System.out.println("bapajau " + intInput + " "+temp);
+        return  intInput;
     }
-
+ 
     @Override
     public int chooseDefenseSkill() {
+        char input ;
+        int ascii, intInput;
+        String temp;
         System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
-        return scanner.nextInt();
-
+        do{
+            System.out.println("masuk pak eko");
+            temp = scanner.nextLine();
+            input = temp.charAt(0);
+            ascii = (int)input;
+            System.out.println("ascii " + ascii);
+        } while(ascii < 49 || ascii > 52);
+        
+        intInput = Integer.parseInt(temp);
+        System.out.println("bapajau " + intInput + " "+temp);
+        return  intInput;
     }
     
     
@@ -43,6 +68,9 @@ public class Magician extends Hero{
             enemy.setHp(enemy.getHp() - dmg);
             System.out.println("Kamu memberikan damage " + dmg + " kepada " + enemy.getName());
         }
+    
+    
+   
     
     
     

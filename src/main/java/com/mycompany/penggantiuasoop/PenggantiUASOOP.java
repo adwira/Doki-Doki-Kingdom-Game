@@ -6,11 +6,11 @@ package com.mycompany.penggantiuasoop;
 
 //import java.util.ArrayList;
 //import java.util.List;
-
-/**
- *
- * @author User
- */
+import java.io.Console;
+import java.util.Scanner;
+// *
+// * @author User
+// */
 public class PenggantiUASOOP {
 
         
@@ -21,7 +21,18 @@ public class PenggantiUASOOP {
 //    enemies.add(new Goblin("Goblin Grunt", 50, 1, 10, 5, 5, 5, 5));
     Enemy enemy = new Goblin("Goblin Grunt", 50, 1, 10, 5, 5, 5, 5);
 //    Enemy n = n
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("SELAMAT DATANG DI DOKI DOKI ADVENTURE!");
+        System.out.print("Tekan enter untuk melanjutkan...");
+        scanner.nextLine();
+        System.out.println("KAMU ADALAH PAHLAWAN, TOLONG SELAMATKAN DUNIA INI!");
+        System.out.print("Tekan enter untuk melanjutkan...");
+        scanner.nextLine();
+        
+        System.out.println("PERTAMA-TAMA, PILIH CLASS KAMU!");
+        System.out.print("Tekan enter untuk melanjutkan...");
+        scanner.nextLine();
+        
     Battle battle = new Battle(hero); // Pass the Hero object to Battle constructor
     battle.start(enemy);
     }
