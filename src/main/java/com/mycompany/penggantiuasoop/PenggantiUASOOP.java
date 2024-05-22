@@ -6,6 +6,8 @@ package com.mycompany.penggantiuasoop;
 
 //import java.util.ArrayList;
 //import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 // *
 // * @author User
@@ -16,7 +18,7 @@ public class PenggantiUASOOP {
         for (char c : text.toCharArray()) {
             System.out.print(c);
             System.out.flush(); // Memastikan karakter langsung ditampilkan
-            Thread.sleep(500); // Menunda 50 milidetik antara setiap karakter
+            Thread.sleep(50); // Menunda 50 milidetik antara setiap karakter
         }
         System.out.println(); // Pindah ke baris baru setelah teks selesai
     }
@@ -26,7 +28,6 @@ public class PenggantiUASOOP {
             char input ;
         int ascii, intInput;
         String temp;
-        System.out.println("Pilih Skill Serangan (Basic Attack/Strike/Scorch/Meditate):");
         do{
             temp = scanner.nextLine();
             input = temp.charAt(0);
@@ -40,6 +41,8 @@ public class PenggantiUASOOP {
     public static void main(String[] args) throws InterruptedException {
    //NAMA, HP, gold  level  physicalPower  magicPower physicalDefense magicDefend
         int c = 0;
+        int index= 0, length, battleState = 0;
+        List<Enemy> listEnemies = new ArrayList<>();
         String Nama = "";
         Hero hero  = null;
         String welcomeMessage = "SELAMAT DATANG DI DOKI DOKI ADVENTURE!";
@@ -48,6 +51,10 @@ public class PenggantiUASOOP {
         String message3 = "Masukan Nama Hero Anda!";
 
         Enemy enemy = new Goblin("Goblin Grunt", 50, 1, 10, 100, 5, 5, 5);
+        Enemy slime = new Slime("Slime", 50, 1, 10, 10, 5, 5, 5);
+        listEnemies.add(enemy);
+        listEnemies.add(slime);
+        
         Scanner scanner = new Scanner(System.in);
         typeWithAnimation(welcomeMessage);
         System.out.print(message1);
@@ -100,11 +107,21 @@ public class PenggantiUASOOP {
             System.out.println("Masukan Inputan Yang Valid!");
 
         }
+        length = listEnemies.size();
+        while(battleState != -1){
+            Enemy currentEnemy = listEnemies.get(index);
+            Battle battle = new Battle(hero);
+            battleState = battle.start(currentEnemy);
+            
+            if(battleState == 1) index ++;
+            
+            if(index == length) {
+                System.out.println("YOU WIN\n");
+                break;
+                
+            }
+        }
 
-
-
-    Battle battle = new Battle(hero);
-    battle.start(enemy);
     }
         
 
