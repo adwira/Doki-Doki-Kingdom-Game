@@ -39,6 +39,7 @@ abstract class Hero implements Character{
     
     abstract void skillSpecial(Enemy enemy);
     abstract void buff();
+    abstract void debuff();
     
      
     public void basicAttack(Enemy enemy){
