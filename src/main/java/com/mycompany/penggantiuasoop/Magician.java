@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Magician extends Hero{
     private static final Scanner scanner = new Scanner(System.in);
 
-    public Magician(String name, int hp, int gold, int level, int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
-        super(name, hp, gold, level, physicalPower, magicPower, physicalDefense, magicDefend, type);
+    public Magician(String name) {
+        super(name, 100, 50, 1, 10, 40, 15, 35, "Magician");
     }
 
     int tempM;

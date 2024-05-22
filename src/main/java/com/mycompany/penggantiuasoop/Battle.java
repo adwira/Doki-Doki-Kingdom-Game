@@ -88,11 +88,11 @@ public class Battle {
         String summary = String.format("%-30s        %-30s\n", hero.getName(), enemy.getName());
         summary += String.format("HP    : %-30s HP    : %-30s\n", hero.getHp(), enemy.getHp());
         summary += String.format("Level : %-30s Level : %-30s\n", hero.getLevel(), enemy.getLevel());
-        summary += String.format("Gold  : \n", hero.getGold());
         summary += String.format("PP    : %-30s PP    : %-30s\n", hero.getPhysicalPower(), enemy.getPhysicalPower());
         summary += String.format("PD    : %-30s PD    : %-30s\n", hero.getPhysicalDefense(), enemy.getPhysicalDefense());
         summary += String.format("MP    : %-30s MP    : %-30s\n", hero.getMagicPower(), enemy.getMagicPower());
         summary += String.format("MD    : %-30s MD    : %-30s\n", hero.getMagicDefense(), enemy.getMagicDefense());
+        summary += String.format("Gold  : %-30s \n", hero.getGold());
 
         System.out.println(summary);
     }

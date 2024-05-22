@@ -5,22 +5,22 @@ import java.util.Scanner;
 public class Warrior extends Hero{
     private static final Scanner scanner = new Scanner(System.in);
 
-    public Warrior(String name, int hp, int gold, int level, int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type) {
-        super(name, hp, gold, level, physicalPower, magicPower, physicalDefense, magicDefend, type);
+   public Warrior(String name) {
+        super(name, 150, 50, 1, 40, 10, 35, 15, "Warrior");
     }
 
     int tempM;
     int tempN;
     @Override
     public int chooseAttackSkill() {
-         System.out.println("Pilih Skill Serangan (attack/strike/scorch/meditate):");
+         System.out.println("Pilih Skill Serangan (Attack/Strike/Rune Sword/Muscle):");
         return scanner.nextInt();
  
     }
 
     @Override
     public int chooseDefenseSkill() {
-        System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
+        System.out.println("Pilih Skill Pertahanan (Defend/Counter/Magic Shield/Give Up):");
         return scanner.nextInt();
 
     }
