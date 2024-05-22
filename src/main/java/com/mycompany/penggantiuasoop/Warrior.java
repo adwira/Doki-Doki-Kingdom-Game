@@ -50,9 +50,17 @@ public class Warrior extends Hero{
     
     @Override
     public void buff(){
+        setPhysicalPower(getPhysicalPower()*3/2);
+        setPhysicalDefense(getPhysicalDefense()*3/2);
+    }
+    
+    @Override
+    public void debuff(){
+        setPhysicalPower(tempM);
+        setPhysicalDefense(tempN);
+    }
+    public void setdebuff(){
         this.tempM = getPhysicalPower();
         this.tempN = getPhysicalDefense();
-        setPhysicalPower(tempM*3/2);
-        setPhysicalDefense(tempN*3/2);
     }
 }

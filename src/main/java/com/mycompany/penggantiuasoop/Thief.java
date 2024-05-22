@@ -52,6 +52,11 @@ public class Thief extends Hero{
     }
     
     @Override
+    public void debuff(){
+        
+    }
+    
+    @Override
     public void buff(){
         setGold(getGold()*3/2);
     }

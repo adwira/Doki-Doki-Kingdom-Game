@@ -70,14 +70,19 @@ public class Magician extends Hero{
         }
     
     
-   
-    
+   @Override
+    public void debuff(){
+        setMagicPower(tempM);
+    }
+    public void setdebuff(){
+        this.tempM = getMagicPower();
+    }
     
     
     @Override
     public void buff(){
-        this.tempM = getMagicPower();
-        setMagicPower(tempM*2);
+       setdebuff();
+        setMagicPower(getMagicPower()*2);
     }
 }
 
