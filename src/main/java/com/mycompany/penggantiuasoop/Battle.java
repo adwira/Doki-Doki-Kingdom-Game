@@ -43,7 +43,7 @@ public class Battle {
         }
     }
     
-    public void start(Enemy enemy) {
+    public int start(Enemy enemy) {
         this.enemy = enemy;
         System.out.println("Kamu Melawan " + enemy.getName());
         printTurnSummary(hero, enemy);
@@ -71,11 +71,12 @@ public class Battle {
                 // Check for win/lose condition
                 if (hero.getHp() <= 0) {
                     System.out.println("Kamu Kalah!!!!");
-                    break;
+                    return -1;
                 } 
                 else if (enemy.getHp() <= 0) {
+                    hero.debuff();
                     System.out.println(enemy.getName() + " telah dikalahkan!");
-                    break;
+                    return 1;
                 }
 
                 heroFirst = !heroFirst;
