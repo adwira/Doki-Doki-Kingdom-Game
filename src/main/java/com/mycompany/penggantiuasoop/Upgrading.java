@@ -43,20 +43,60 @@ public class Upgrading {
             
             hero.setGold(hero.getGold()-price);
             hero.setPhysicalPower(up+hero.getPhysicalPower());
-            System.out.println("");
+            System.out.println("Physical Power Telah Ditingkatkan!");
         }
     }
     
     public void pdUp(Hero hero, int up){
-        
+        price = up*50;
+        if(!GoldCheker(hero, price)){
+            System.out.println("kau bokek anjir");
+        }
+        else{
+            
+            hero.setGold(hero.getGold()-price);
+            hero.setPhysicalDefense(up+hero.getPhysicalDefense());
+            System.out.println("Physical Defense Telah Ditingkatkan!");
+        }
     }
     
     public void mgP(Hero hero, int up){
-        
+        price = up*50;
+        if(!GoldCheker(hero, price)){
+            System.out.println("kau bokek anjir");
+        }
+        else{
+            
+            hero.setGold(hero.getGold()-price);
+            hero.setMagicPower(up+hero.getMagicPower());
+            System.out.println("Magic Power Telah Ditingkatkan!");
+        }
     }
     
     public void mgD(Hero hero, int up){
-        
+        price = up*50;
+        if(!GoldCheker(hero, price)){
+            System.out.println("kau bokek anjir");
+        }
+        else{
+
+            hero.setGold(hero.getGold()-price);
+            hero.setMagicDefense(up+hero.getMagicDefense());
+            System.out.println("Magic Defense Telah Ditingkatkan!");
+        }
+    }
+    
+    public void healing(Hero hero){
+        price = 100;
+        if(!GoldCheker(hero, price)){
+            System.out.println("kau bokek anjir");
+        }
+        else{
+
+            hero.setGold(hero.getGold()-price);
+            hero.setHp(hero.getHp());
+            System.out.println("HP Telah Pulih!");
+        }
     }
     
     
