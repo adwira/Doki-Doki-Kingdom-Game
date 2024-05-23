@@ -9,16 +9,17 @@ package com.mycompany.penggantiuasoop;
  */
 abstract class Hero implements Character{
     
-    protected String name;
-    protected int hp;
-    protected int level;
-    protected int gold;
-    protected int physicalPower;
-    protected int magicPower;
-    protected int physicalDefense;
-    protected int magicDefense;
-    protected boolean isGiveUp;
-    protected String type;
+    private String name;
+    private int hp;
+    private int maxhp;
+    private int level;
+    private int gold;
+    private int physicalPower;
+    private int magicPower;
+    private int physicalDefense;
+    private int magicDefense;
+    private boolean isGiveUp;
+    private String type;
     
     public Hero(String name, int hp, int gold,int level,int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type){
         this.name = name;
@@ -31,6 +32,7 @@ abstract class Hero implements Character{
         this.physicalDefense = physicalDefense;
         this.magicDefense = magicDefend;
         this.isGiveUp = false;
+        this.maxhp = hp;
     }
 //    public Enemy enemy;
     
@@ -176,6 +178,14 @@ abstract class Hero implements Character{
 
     public void setMagicDefense(int magicDefense) {
         this.magicDefense = magicDefense;
+    }
+
+    public int getMaxhp() {
+        return maxhp;
+    }
+
+    public void setMaxhp(int maxhp) {
+        this.maxhp = maxhp;
     }
 
 }
