@@ -45,7 +45,7 @@ public class PenggantiUASOOP {
         int c = 0, poinUp;
         String input;
         Upgrading up = new Upgrading();
-        int index = 0, length, enemyCount = 0, battleState = 0;
+        int index = 4, length, enemyCount = 0, battleState = 0;
         //int battleState = 0;
         List<Enemy> listEnemies = new ArrayList<>();
         String Nama = "";
@@ -62,12 +62,14 @@ public class PenggantiUASOOP {
         Enemy goblin2 = new Goblin("Goblin", 90, 1, 35, 25, 20, 15, 5);
         Enemy goblin3 = new Goblin("Goblin 3", 90, 1, 35, 25, 20, 15, 5);
         Enemy gblking = new Goblin("Goblin King", 200, 1, 35, 25, 20, 15, 5);
+        Enemy gbl4 = new Goblin("Goblin Magician", 100, 2, 35, 25, 20, 15, 5);
         listEnemies.add(enemy);
         listEnemies.add(slime);
         listEnemies.add(slime2);
         listEnemies.add(goblin2);
         listEnemies.add(goblin3);
         listEnemies.add(gblking);
+        listEnemies.add(gbl4);
 
         Scanner scanner = new Scanner(System.in);
         typeWithAnimation(welcomeMessage);
@@ -141,7 +143,7 @@ public class PenggantiUASOOP {
             }
 
         }
-
+        
         length = listEnemies.size();
         while (battleState != -1) {
             Enemy currentEnemy;
@@ -175,14 +177,18 @@ public class PenggantiUASOOP {
                 System.out.println("Setelah mengalahkan 5 musuh, kamu akan melawan Boss!");
                 System.out.println("Tekan enter untuk melanjutkan...");
                 scanner.nextLine();
+                currentEnemy = listEnemies.get(index);
+                battleState = battle.start(currentEnemy);
 
 //                masuk ke shop
                 while (true) {
                     System.out.println("Selamat datang di Doki Doki SHOP..");
                     
                     input = scanner.nextLine();
+                    System.out.println(input);
                     poinUp = 0;
-                    if (input == "1") {
+                    
+                    if ("1".equals(input)) {
                         System.out.println("Masukan Jumlah bla...");
                         poinUp = scanner.nextInt();
                         up.hpUp(hero, poinUp);
@@ -190,32 +196,32 @@ public class PenggantiUASOOP {
                         System.out.println("Tekan Apa Saja untuk kembali");
                         
                         scanner.nextLine();
-                    } else if (input == "2") {
+                    } else if ("2".equals(input)) {
                         System.out.println("Masukan Jumlah bla...");
                         poinUp = scanner.nextInt();
                         up.ppUp(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else if (input == "3") {
+                    } else if ("3".equals(input)) {
                         System.out.println("Masukan Jumlah bla...");
                         poinUp = scanner.nextInt();
                         up.pdUp(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else if (input == "4") {
+                    } else if ("4".equals(input)) {
                         System.out.println("Masukan Jumlah bla...");
                         poinUp = scanner.nextInt();
                         up.mgP(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else if (input == "5") {
+                    } else if ("5".equals(input)) {
                         System.out.println("Masukan Jumlah bla...");
                         poinUp = scanner.nextInt();
                         up.mgD(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     }
-                    else if(input == "6"){
+                    else if("6".equals(input)){
                         
                         up.healing(hero);
                         System.out.println("Tekan Apa Saja untuk kembali");
