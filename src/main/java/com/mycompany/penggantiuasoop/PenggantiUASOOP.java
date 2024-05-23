@@ -42,7 +42,9 @@ public class PenggantiUASOOP {
 
     public static void main(String[] args) throws InterruptedException {
         //NAMA, HP, gold  level  physicalPower  magicPower physicalDefense magicDefend
-        int c = 0;
+        int c = 0, poinUp;
+        String input;
+        Upgrading up = new Upgrading();
         int index = 0, length, enemyCount = 0, battleState = 0;
         //int battleState = 0;
         List<Enemy> listEnemies = new ArrayList<>();
@@ -52,7 +54,7 @@ public class PenggantiUASOOP {
         String message1 = "Tekan enter untuk melanjutkan...";
         String message2 = "KAMU ADALAH SEORANG PAHLAWAN, TOLONG SELAMATKAN DUNIA INI!";
         String message3 = "Masukan Nama Hero Anda!";
-        
+
 //        Add Enemy to List
         Enemy enemy = new Goblin("Goblin Grunt", 90, 1, 35, 25, 20, 15, 5);
         Enemy slime = new Slime("Slime", 150, 1, 50, 10, 10, 40, 40);
@@ -121,31 +123,65 @@ public class PenggantiUASOOP {
 
             Battle battle = new Battle(hero);
             battleState = battle.start(currentEnemy);
-            
 
-            if(battleState == 2){
-                index ++;
+            if (battleState == 2) {
+                index++;
             }
-            
-            if(battleState == 1)
-                index ++;
-                enemyCount ++; // Increment enemyCount only after winning a battle
-            
-            if(enemyCount % 3 == 0){
+
+            if (battleState == 1) {
+                index++;
+            }
+            enemyCount++; // Increment enemyCount only after winning a battle
+
+            if (enemyCount % 3 == 0) {
                 hero.setLevel(hero.getLevel() + 1);
                 System.out.println("Kamu naik ke level " + hero.getLevel() + "!!");
                 System.out.println("Kamu bertambah kuat!!");
-                hero.setHp((int)(hero.getHp() * 1.1));
-                hero.setPhysicalPower((int)(hero.getPhysicalPower() * 1.1));
-                hero.setPhysicalDefense((int)(hero.getPhysicalDefense() * 1.1));
-                hero.setMagicPower((int)(hero.getMagicPower() * 1.1));
-                hero.setMagicDefense((int)(hero.getMagicDefense() * 1.1));
+                hero.setHp((int) (hero.getHp() * 1.1));
+                hero.setPhysicalPower((int) (hero.getPhysicalPower() * 1.1));
+                hero.setPhysicalDefense((int) (hero.getPhysicalDefense() * 1.1));
+                hero.setMagicPower((int) (hero.getMagicPower() * 1.1));
+                hero.setMagicDefense((int) (hero.getMagicDefense() * 1.1));
             }
-            
+
             if (index % 5 == 0 && index != length) {
                 System.out.println("Setelah mengalahkan 5 musuh, kamu akan melawan Boss!");
                 System.out.println("Tekan enter untuk melanjutkan...");
                 scanner.nextLine();
+
+//                masuk ke shop
+                while (true) {
+                    System.out.println("Selamat datang di Doki Doki SHOP..");
+                    input = scanner.nextLine();
+                    poinUp = 0;
+                    if (c == 1) {
+                        up.hpUp(hero, poinUp);
+                        
+                        System.out.println("Tekan Apa Saja untuk kembali");
+                        
+                        scanner.nextLine();
+                    } else if (c == 2) {
+                        up.ppUp(hero, poinUp);
+                        System.out.println("Tekan Apa Saja untuk kembali");
+                        scanner.nextLine();
+                    } else if (c == 3) {
+                        up.pdUp(hero, poinUp);
+                        System.out.println("Tekan Apa Saja untuk kembali");
+                        scanner.nextLine();
+                    } else if (c == 4) {
+                        up.mgP(hero, poinUp);
+                        System.out.println("Tekan Apa Saja untuk kembali");
+                        scanner.nextLine();
+                    } else if (c == 5) {
+                        up.mgD(hero, poinUp);
+                        System.out.println("Tekan Apa Saja untuk kembali");
+                        scanner.nextLine();
+
+                    } else {
+                        break;
+                    }
+                }
+
             }
 
             if (index == listEnemies.size()) { // Win condition: Defeat all enemies
