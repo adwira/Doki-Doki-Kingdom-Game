@@ -6,8 +6,10 @@ package com.mycompany.penggantiuasoop;
 //import java.util.ArrayList;
 //import java.util.List;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 // *
 // * @author User
 // */
@@ -129,7 +131,14 @@ public class PenggantiUASOOP {
                 enemyCount ++; // Increment enemyCount only after winning a battle
             
             if(enemyCount % 3 == 0){
-                
+                hero.setLevel(hero.getLevel() + 1);
+                System.out.println("Kamu naik ke level " + hero.getLevel() + "!!");
+                System.out.println("Kamu bertambah kuat!!");
+                hero.setHp((int)(hero.getHp() * 1.1));
+                hero.setPhysicalPower((int)(hero.getPhysicalPower() * 1.1));
+                hero.setPhysicalDefense((int)(hero.getPhysicalDefense() * 1.1));
+                hero.setMagicPower((int)(hero.getMagicPower() * 1.1));
+                hero.setMagicDefense((int)(hero.getMagicDefense() * 1.1));
             }
             
             if (index % 5 == 0 && index != length) {

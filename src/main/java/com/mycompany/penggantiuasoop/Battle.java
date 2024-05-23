@@ -78,7 +78,9 @@ public class Battle {
                 } 
                 else if (enemy.getHp() <= 0) {
                     hero.debuff();
+                    hero.setGold(hero.getGold() + enemy.getGold());
                     System.out.println(enemy.getName() + " telah dikalahkan!");
+                     System.out.println("Kamu mendapatkan " + enemy.getGold() + "Gold!");
                     return 1;
                 }
                 
