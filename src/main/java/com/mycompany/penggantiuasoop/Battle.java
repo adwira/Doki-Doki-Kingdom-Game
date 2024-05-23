@@ -69,6 +69,9 @@ public class Battle {
                 printTurnSummary(hero, enemy);
 
                 // Check for win/lose condition
+                if(hero.isGiveUp()){
+                    return 2;
+                }
                 if (hero.getHp() <= 0) {
                     System.out.println("Kamu Kalah!!!!");
                     return -1;
@@ -78,6 +81,7 @@ public class Battle {
                     System.out.println(enemy.getName() + " telah dikalahkan!");
                     return 1;
                 }
+                
 
                 heroFirst = !heroFirst;
             }

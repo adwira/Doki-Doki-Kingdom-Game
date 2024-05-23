@@ -17,6 +17,7 @@ abstract class Hero implements Character{
     protected int magicPower;
     protected int physicalDefense;
     protected int magicDefense;
+    protected boolean isGiveUp;
     protected String type;
     
     public Hero(String name, int hp, int gold,int level,int physicalPower, int magicPower, int physicalDefense, int magicDefend, String type){
@@ -29,6 +30,7 @@ abstract class Hero implements Character{
         this.magicPower = magicPower;
         this.physicalDefense = physicalDefense;
         this.magicDefense = magicDefend;
+        this.isGiveUp = false;
     }
 //    public Enemy enemy;
     
@@ -93,10 +95,15 @@ abstract class Hero implements Character{
     }
     public void giveUp() {
         setGold(0);
+        isGiveUp = true;
         System.out.println("Kamu Menyerah cemen lu");
         }
 
-    
+    public boolean isGiveUp(){
+        boolean temp = isGiveUp;
+        isGiveUp = false;
+        return temp;
+    }
 
     
     public String getName() {

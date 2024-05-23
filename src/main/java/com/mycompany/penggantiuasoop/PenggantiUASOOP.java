@@ -41,7 +41,7 @@ public class PenggantiUASOOP {
     public static void main(String[] args) throws InterruptedException {
         //NAMA, HP, gold  level  physicalPower  magicPower physicalDefense magicDefend
         int c = 0;
-        int index = 0, length, enemyCount = 0;
+        int index = 0, length, enemyCount = 0, battleState = 0;
         //int battleState = 0;
         List<Enemy> listEnemies = new ArrayList<>();
         String Nama = "";
@@ -112,34 +112,38 @@ public class PenggantiUASOOP {
         }
 
         length = listEnemies.size();
-        while (true) {
+        while (battleState != -1) {
             Enemy currentEnemy;
-            if (enemyCount < listEnemies.size()) { // Access enemies from list
-                currentEnemy = listEnemies.get(enemyCount);
-            } else {
-                // Boss fight (optional, not shown here for brevity)
-                System.out.println("****** BOSS BATTLE ******");
-                // ... (your boss fight logic)
-                break; // Exit the loop after boss fight (assuming one boss)
-            }
+            currentEnemy = listEnemies.get(index);
 
             Battle battle = new Battle(hero);
-            int battleState = battle.start(currentEnemy);
+            battleState = battle.start(currentEnemy);
+            
 
-            if (battleState == 1) {
-                enemyCount++; // Increment enemyCount only after winning a battle
-                if (enemyCount % 5 == 0 && enemyCount != listEnemies.size()) {
-                    System.out.println("Setelah mengalahkan 5 musuh, kamu akan melawan Boss!");
-                    System.out.println("Tekan enter untuk melanjutkan...");
-                    scanner.nextLine();
-                }
+            if(battleState == 2){
+                index ++;
+            }
+            
+            if(battleState == 1)
+                index ++;
+                enemyCount ++; // Increment enemyCount only after winning a battle
+            
+            if(enemyCount % 3 == 0){
+                
+            }
+            
+            if (index % 5 == 0 && index != length) {
+                System.out.println("Setelah mengalahkan 5 musuh, kamu akan melawan Boss!");
+                System.out.println("Tekan enter untuk melanjutkan...");
+                scanner.nextLine();
             }
 
-            if (enemyCount == listEnemies.size()) { // Win condition: Defeat all enemies
+            if (index == listEnemies.size()) { // Win condition: Defeat all enemies
                 System.out.println("YOU WIN! Kamu telah menyelamatkan dunia!");
                 break;
             }
         }
+        System.out.println("YOU LOSE");
 
     }
 
