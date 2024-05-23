@@ -18,15 +18,12 @@ public class Magician extends Hero{
         String temp;
         System.out.println("Pilih Skill Serangan (Basic Attack/Strike/Scorch/Meditate):");
         do{
-            System.out.println("masuk pak eko");
             temp = scanner.nextLine();
             input = temp.charAt(0);
             ascii = (int)input;
-            System.out.println("ascii " + ascii);
         } while(ascii < 49 || ascii > 52);
         
         intInput = Integer.parseInt(temp);
-        System.out.println("bapajau " + intInput + " "+temp);
         return  intInput;
     }
  
@@ -37,15 +34,12 @@ public class Magician extends Hero{
         String temp;
         System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
         do{
-            System.out.println("masuk pak eko");
             temp = scanner.nextLine();
             input = temp.charAt(0);
             ascii = (int)input;
-            System.out.println("ascii " + ascii);
         } while(ascii < 49 || ascii > 52);
         
         intInput = Integer.parseInt(temp);
-        System.out.println("bapajau " + intInput + " "+temp);
         return  intInput;
     }
     
@@ -53,17 +47,21 @@ public class Magician extends Hero{
     
     @Override
     public void skillSpecial(Enemy enemy){
-            int dmg;
+            int dmg = 0;
             int x = enemy.chooseDefenseSkill();
-            System.out.println("Kamu menggunakan Scorch!");
             if(x == 1){
                 dmg = (getMagicPower() * 2) - enemy.getMagicDefense();
-                
+                System.out.println("Musuh menggunakan Defend!");
+                System.out.println("Kamu menggunakan Scorch!");
             }
             else if(x == 2) {
                 dmg = (getMagicPower() * 2);
+                System.out.println("Musuh menggunakan Counter!");
+                System.out.println("Musuh menggunakan Scorch!");
             }
             else { dmg = getMagicPower() / 2;
+            System.out.println("Musuh menggunakan Magic Shield!");
+                System.out.println("Kamu menggunakan Scorch!");
             }
             enemy.setHp(enemy.getHp() - dmg);
             System.out.println("Kamu memberikan damage " + dmg + " kepada " + enemy.getName());

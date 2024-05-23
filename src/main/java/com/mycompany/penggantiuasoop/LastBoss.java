@@ -49,22 +49,21 @@ public class LastBoss extends Enemy {
         public void skillSpecial(Hero hero){
         int dmg = 0;
         int x = hero.chooseDefenseSkill();
-        //System.out.println(this.getName() + " menggunakan Poison Dagger!");
         switch (x) {
             case 1 -> {
                 dmg = (getPhysicalPower() + (getMagicPower() / 2)) - hero.getMagicDefense();
                 System.out.println("Kamu menggunakan Defend!");
-                System.out.println("Musuh menggunakan Poison Dagger!");
+                System.out.println("Musuh menggunakan Infernal Shockwave!");
             }
             case 2 -> {
                 dmg = (getPhysicalPower() + (getMagicPower() / 2));
                 System.out.println("Kamu menggunakan Counter!");
-                System.out.println("Musuh menggunakan Poison Dagger");
+                System.out.println("Musuh menggunakan Infernal Shockwave!");
             }
             case 3 -> {
                 dmg = (getPhysicalPower() + (getMagicPower() / 2)) / 2;
                 System.out.println("Kamu menggunakan Magic Shield!");
-                System.out.println("Musuh menggunakan Steal Gold!");
+                System.out.println("Musuh menggunakan Infernal Shockwave!");
             }
             case 4 -> {
                 hero.giveUp();
