@@ -52,7 +52,8 @@ public class PenggantiUASOOP {
         String message1 = "Tekan enter untuk melanjutkan...";
         String message2 = "KAMU ADALAH SEORANG PAHLAWAN, TOLONG SELAMATKAN DUNIA INI!";
         String message3 = "Masukan Nama Hero Anda!";
-
+        
+//        Add Enemy to List
         Enemy enemy = new Goblin("Goblin Grunt", 90, 1, 35, 25, 20, 15, 5);
         Enemy slime = new Slime("Slime", 150, 1, 50, 10, 10, 40, 40);
         Enemy slime2 = new Slime("Slime", 150, 1, 50, 10, 10, 40, 40);
