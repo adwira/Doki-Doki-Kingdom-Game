@@ -107,7 +107,33 @@ public class PenggantiUASOOP {
                 hero = new Magician(Nama);
                 break;
             } else if (c == 4) {
-                System.out.println("DES masuk kes 4");
+                System.out.println("Warrior mengutamakan kekuatan fisik dan"
+                        + " memiliki serangan fisik yang kuat. Warrior memiliki "
+                        + "kemampuan bertahan yang baik dan cocok untuk pemain "
+                        + "yang suka bermain agresif. Warrior memiliki statistik awal :");
+                System.out.println("150 HP");
+                System.out.println("40 PP (Physical Power)");
+                System.out.println("35 PD (Physical Defense)");
+                System.out.println("10 MP (Magic Power)");
+                System.out.println("15 MD (Magic Defense)");
+                System.out.println("Magician mengandalkan kekuatan sihir untuk"
+                        + " menyerang musuh. Mereka memiliki berbagai mantra"
+                        + " sihir yang dapat menyebabkan kerusakan besar atau"
+                        + " memberikan efek status pada lawan. Magician memiliki"
+                        + " statistik awal :");
+                System.out.println("100 HP");
+                System.out.println("10 PP (Physical Power)");
+                System.out.println("15 PD (Physical Defense)");
+                System.out.println("40 MP (Magic Power)");
+                System.out.println("35 MD (Magic Defense)");
+                System.out.println("Thief memiliki kemampuan untuk mencuri"
+                        + " barang dari musuh atau pemain lain. Thief memiliki"
+                        + " statistik awal :");
+                System.out.println("120 HP");
+                System.out.println("35 PP (Physical Power)");
+                System.out.println("25 PD (Physical Defense)");
+                System.out.println("15 MP (Magic Power)");
+                System.out.println("25 MD (Magic Defense)");
                 System.out.println("Tekan Apa Saja untuk kembali");
                 scanner.nextLine();
             } else {
