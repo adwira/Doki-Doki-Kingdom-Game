@@ -51,15 +51,18 @@ public class Magician extends Hero{
             int x = enemy.chooseDefenseSkill();
             if(x == 1){
                 dmg = (getMagicPower() * 2) - enemy.getMagicDefense();
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Musuh menggunakan Defend!");
                 System.out.println("Kamu menggunakan Scorch!");
             }
             else if(x == 2) {
                 dmg = (getMagicPower() * 2);
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Musuh menggunakan Counter!");
                 System.out.println("Musuh menggunakan Scorch!");
             }
             else { dmg = getMagicPower() / 2;
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println("Musuh menggunakan Magic Shield!");
                 System.out.println("Kamu menggunakan Scorch!");
             }

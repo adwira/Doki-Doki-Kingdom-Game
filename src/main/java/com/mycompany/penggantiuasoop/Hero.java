@@ -48,13 +48,16 @@ abstract class Hero implements Character{
         System.out.println("Kamu menggunakan Basic Attack!");
         if(x == 1){
             dmg = this.getPhysicalPower() - enemy.getPhysicalDefense();
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println(enemy.getName() + " menggunakan Defend!");
         }
         else if(x == 2) {
             dmg = this.getPhysicalPower() * 2;
             System.out.println(enemy.getName() + " menggunakan Counter!");
         }
-        else { dmg = this.getPhysicalPower();
+        else { 
+            dmg = this.getPhysicalPower();
+            dmg = dmg < 0 ? 0 : dmg;    
             System.out.println(enemy.getName() + " menggunakan Magic Shield!");
         }
         enemy.setHp(enemy.getHp() - dmg);
@@ -67,10 +70,12 @@ abstract class Hero implements Character{
         System.out.println("Kamu menggunakan Strike!");
         if(x == 1){
             dmg = (getPhysicalPower() * 2) - enemy.getPhysicalDefense();
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println(enemy.getName() + " menggunakan Defend!");
         }
         else if(x == 2) {
             dmg = (getPhysicalPower() * 2) + enemy.getPhysicalPower();
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println(enemy.getName() + " menggunakan Counter!");
         }
         else { dmg = getPhysicalPower() * 2;

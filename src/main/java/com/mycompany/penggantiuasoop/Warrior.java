@@ -31,16 +31,19 @@ public class Warrior extends Hero{
         int x = enemy.chooseDefenseSkill();
         if(x == 1){
             dmg = (getPhysicalPower() + getPhysicalDefense()) - enemy.getMagicDefense();
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println("Musuh menggunakan Defend!");
             System.out.println("Kamu menggunakan Rune Sword!");
         }
         else if(x == 2) {
             dmg = getPhysicalPower() + getPhysicalDefense();
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println("Musuh menggunakan Counter!");
             System.out.println("Kamu menggunakan Rune Sword!");
         }
         else {
             dmg = getPhysicalPower() + getPhysicalDefense() / 2;
+            dmg = dmg < 0 ? 0 : dmg;
             System.out.println("Musuh menggunakan Magic Shield!");
             System.out.println("Kamu menggunakan Rune Sword!");
         }

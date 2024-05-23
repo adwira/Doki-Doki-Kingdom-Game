@@ -39,17 +39,20 @@ abstract void buff(Hero hero);
         int x = hero.chooseDefenseSkill();
         switch (x) {
             case 1 -> {
-                dmg = Math.max(0,getPhysicalPower() - hero.getPhysicalDefense());
+                dmg = getPhysicalPower() - hero.getPhysicalDefense();
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("kamu menggunakan Defend!");
                 System.out.println("Musuh menggunakan Basic Attack!");
             }
             case 2 -> {
-                dmg = Math.max(0,getPhysicalPower() * 2);
+                dmg = getPhysicalPower() * 2;
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("kamu menggunakan Counter!");
                 System.out.println("Musuh menggunakan Basic Attack!");
             }
             case 3 -> {
-                dmg = Math.max(0,getPhysicalPower());
+                dmg =getPhysicalPower();
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("kamu menggunakan Magic Shield!");
                 System.out.println("Musuh menggunakan Basic Attack!");
             }

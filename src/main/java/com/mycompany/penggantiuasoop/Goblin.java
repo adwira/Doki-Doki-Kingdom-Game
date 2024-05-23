@@ -55,16 +55,19 @@ class Goblin extends Enemy{
         switch (x) {
             case 1:
                 dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)) - hero.getMagicDefense());
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("kamu menggunakan Defend!");
                 System.out.println("Musuh menggunakan Acid Breath!");
                 break;
             case 2:
                 dmg = Math.max(0,(getMagicPower() + (getPhysicalDefense() / 2)));
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("kamu menggunakan Counter!");
                 System.out.println("Musuh menggunakan Acid Breath!");
                 break;
             case 3:
                 dmg = Math.max(0,((getMagicPower() + (getPhysicalDefense() / 2)) / 2));
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("kamu menggunakan Defend!");
                 System.out.println("Musuh menggunakan Acid Breath!");
                 break;

@@ -52,16 +52,19 @@ public class LastBoss extends Enemy {
         switch (x) {
             case 1 -> {
                 dmg = (getPhysicalPower() + (getMagicPower() / 2)) - hero.getMagicDefense();
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Kamu menggunakan Defend!");
                 System.out.println("Musuh menggunakan Infernal Shockwave!");
             }
             case 2 -> {
                 dmg = (getPhysicalPower() + (getMagicPower() / 2));
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Kamu menggunakan Counter!");
                 System.out.println("Musuh menggunakan Infernal Shockwave!");
             }
             case 3 -> {
                 dmg = (getPhysicalPower() + (getMagicPower() / 2)) / 2;
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Kamu menggunakan Magic Shield!");
                 System.out.println("Musuh menggunakan Infernal Shockwave!");
             }

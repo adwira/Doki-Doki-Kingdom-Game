@@ -31,16 +31,19 @@ public class Thief extends Hero{
         switch (x) {
             case 1 -> {
                 dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) - enemy.getMagicDefense();
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Musuh menggunakan Defend!");
                 System.out.println("Musuh menggunakan Pickpocket!");
             }
             case 2 -> {
                 dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10));
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Musuh menggunakan Counter!");
                 System.out.println("Musuh menggunakan Pickpocket!");
             }
             case 3 -> {
                 dmg = ((getPhysicalPower() * 3/2) + (getGold() * 1/10)) / 2;
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Musuh menggunakan Magic Shield!");
                 System.out.println("Musuh menggunakan Pickpocket!");
             }

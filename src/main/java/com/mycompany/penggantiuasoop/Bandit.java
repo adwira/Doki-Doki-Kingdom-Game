@@ -53,16 +53,19 @@ class Bandit extends Enemy {
         switch (x) {
             case 1 -> {
                 dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10)) - hero.getMagicDefense();
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Kamu menggunakan Defend!");
                 System.out.println("Musuh menggunakan Steal Gold!");
             }
             case 2 -> {
                 dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10));
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Kamu menggunakan Counter!");
                 System.out.println("Musuh menggunakan Steal Gold!");
             }
             case 3 -> {
                 dmg = ((getPhysicalPower() * 3 / 2) + (getGold() * 1 / 10)) / 2;
+                dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Kamu menggunakan Defend!");
                 System.out.println("Musuh menggunakan Steal Gold!");
             }
