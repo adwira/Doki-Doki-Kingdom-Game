@@ -164,7 +164,7 @@ public class PenggantiUASOOP {
                 hero.setLevel(hero.getLevel() + 1);
                 System.out.println("Kamu naik ke level " + hero.getLevel() + "!!");
                 System.out.println("Kamu bertambah kuat!!");
-                hero.setMaxhp((int) (hero.getHp() * 1.1));
+                hero.setMaxhp((int) (hero.getMaxhp()* 1.1));
                 hero.setPhysicalPower((int) (hero.getPhysicalPower() * 1.1));
                 hero.setPhysicalDefense((int) (hero.getPhysicalDefense() * 1.1));
                 hero.setMagicPower((int) (hero.getMagicPower() * 1.1));
@@ -179,6 +179,7 @@ public class PenggantiUASOOP {
 //                masuk ke shop
                 while (true) {
                     System.out.println("Selamat datang di Doki Doki SHOP..");
+                    
                     input = scanner.nextLine();
                     poinUp = 0;
                     if (input == "1") {
@@ -213,7 +214,14 @@ public class PenggantiUASOOP {
                         up.mgD(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else {
+                    }
+                    else if(input == "6"){
+                        
+                        up.healing(hero);
+                        System.out.println("Tekan Apa Saja untuk kembali");
+                        scanner.nextLine();
+                    }
+                    else {
                         break;
                     }
                 }
