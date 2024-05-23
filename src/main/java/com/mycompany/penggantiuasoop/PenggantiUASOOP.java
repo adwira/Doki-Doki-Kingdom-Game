@@ -132,12 +132,13 @@ public class PenggantiUASOOP {
                 index++;
             }
             enemyCount++; // Increment enemyCount only after winning a battle
-
+            
+//          LEVEL UP
             if (enemyCount % 3 == 0) {
                 hero.setLevel(hero.getLevel() + 1);
                 System.out.println("Kamu naik ke level " + hero.getLevel() + "!!");
                 System.out.println("Kamu bertambah kuat!!");
-                hero.setHp((int) (hero.getHp() * 1.1));
+                hero.setMaxhp((int) (hero.getHp() * 1.1));
                 hero.setPhysicalPower((int) (hero.getPhysicalPower() * 1.1));
                 hero.setPhysicalDefense((int) (hero.getPhysicalDefense() * 1.1));
                 hero.setMagicPower((int) (hero.getMagicPower() * 1.1));
@@ -154,29 +155,38 @@ public class PenggantiUASOOP {
                     System.out.println("Selamat datang di Doki Doki SHOP..");
                     input = scanner.nextLine();
                     poinUp = 0;
-                    if (c == 1) {
+                    if (input == "1") {
+                        System.out.println("Masukan Jumlah bla...");
+                        poinUp = scanner.nextInt();
                         up.hpUp(hero, poinUp);
                         
                         System.out.println("Tekan Apa Saja untuk kembali");
                         
                         scanner.nextLine();
-                    } else if (c == 2) {
+                    } else if (input == "2") {
+                        System.out.println("Masukan Jumlah bla...");
+                        poinUp = scanner.nextInt();
                         up.ppUp(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else if (c == 3) {
+                    } else if (input == "3") {
+                        System.out.println("Masukan Jumlah bla...");
+                        poinUp = scanner.nextInt();
                         up.pdUp(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else if (c == 4) {
+                    } else if (input == "4") {
+                        System.out.println("Masukan Jumlah bla...");
+                        poinUp = scanner.nextInt();
                         up.mgP(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-                    } else if (c == 5) {
+                    } else if (input == "5") {
+                        System.out.println("Masukan Jumlah bla...");
+                        poinUp = scanner.nextInt();
                         up.mgD(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
-
                     } else {
                         break;
                     }
