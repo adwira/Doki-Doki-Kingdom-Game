@@ -22,7 +22,7 @@ public class Upgrading {
         price = up * 10;
 //        isi dengan peningkatan dari equipment, kurangai gold hero dgn hrg equipm
         if (!GoldCheker(hero, price)) {
-            System.out.println("kau bokek anjir");
+            System.out.println("Gold Tidak Mencukupi Untuk Melakukan Peningkatan");
         } else {
             hero.setGold(hero.getGold() - price);
             hero.setMaxhp(up + hero.getMaxhp());
@@ -40,7 +40,7 @@ public class Upgrading {
 
         price = up * 50;
         if (!GoldCheker(hero, price)) {
-            System.out.println("kau bokek anjir");
+            System.out.println("Gold Tidak Mencukupi Untuk Melakukan Peningkatan");
         } else {
 
             hero.setGold(hero.getGold() - price);
@@ -52,7 +52,7 @@ public class Upgrading {
     public void pdUp(Hero hero, int up) {
         price = up * 50;
         if (!GoldCheker(hero, price)) {
-            System.out.println("kau bokek anjir");
+            System.out.println("Gold Tidak Mencukupi Untuk Melakukan Peningkatan");
         } else {
 
             hero.setGold(hero.getGold() - price);
@@ -64,7 +64,7 @@ public class Upgrading {
     public void mgP(Hero hero, int up) {
         price = up * 50;
         if (!GoldCheker(hero, price)) {
-            System.out.println("kau bokek anjir");
+            System.out.println("Gold Tidak Mencukupi Untuk Melakukan Peningkatan");
         } else {
 
             hero.setGold(hero.getGold() - price);
@@ -76,7 +76,7 @@ public class Upgrading {
     public void mgD(Hero hero, int up) {
         price = up * 50;
         if (!GoldCheker(hero, price)) {
-            System.out.println("kau bokek anjir");
+            System.out.println("Gold Tidak Mencukupi Untuk Melakukan Peningkatan");
         } else {
 
             hero.setGold(hero.getGold() - price);
@@ -88,7 +88,7 @@ public class Upgrading {
     public void healing(Hero hero) {
         price = 100;
         if (!GoldCheker(hero, price)) {
-            System.out.println("kau bokek anjir");
+            System.out.println("Gold Tidak Mencukupi Untuk Melakukan Peningkatan");
         } else {
 
             hero.setGold(hero.getGold() - price);
