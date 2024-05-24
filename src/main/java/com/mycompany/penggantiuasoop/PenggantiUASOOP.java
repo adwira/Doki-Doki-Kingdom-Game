@@ -183,13 +183,19 @@ public class PenggantiUASOOP {
 //                masuk ke shop
                 while (true) {
                     System.out.println("Selamat datang di Doki Doki SHOP..");
-                    
+                    System.out.println("Ketikkan salah satu angka dari 1-6 untuk memilih opsi peningkatan");
+                    System.out.println("1. Peningkatan HP");
+                    System.out.println("2. Peningkatan Physical Power");
+                    System.out.println("3. Peningkatan Physical Defense");
+                    System.out.println("4. Peningkatan Magic Power");
+                    System.out.println("5. Peningkatan Magic Defense");
+                    System.out.println("6. Penyembuhan Total");
                     input = scanner.nextLine();
                     System.out.println(input);
                     poinUp = 0;
                     
                     if ("1".equals(input)) {
-                        System.out.println("Masukan Jumlah bla...");
+                        System.out.println("Masukan Jumlah Peningkatan HP yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.hpUp(hero, poinUp);
                         
@@ -197,33 +203,33 @@ public class PenggantiUASOOP {
                         
                         scanner.nextLine();
                     } else if ("2".equals(input)) {
-                        System.out.println("Masukan Jumlah bla...");
+                        System.out.println("Masukan Jumlah Peningkatan Physical Power yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.ppUp(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     } else if ("3".equals(input)) {
-                        System.out.println("Masukan Jumlah bla...");
+                        System.out.println("Masukan Jumlah Peningkatan Physical Defense yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.pdUp(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     } else if ("4".equals(input)) {
-                        System.out.println("Masukan Jumlah bla...");
+                        System.out.println("Masukan Jumlah Peningkatan Magic Power yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.mgP(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     } else if ("5".equals(input)) {
-                        System.out.println("Masukan Jumlah bla...");
+                        System.out.println("Masukan Jumlah Peningkatan Magic Defense yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.mgD(hero, poinUp);
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     }
                     else if("6".equals(input)){
-                        
                         up.healing(hero);
+                        System.out.println("HP-mu Telah Penuh Kembali!");
                         System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     }
