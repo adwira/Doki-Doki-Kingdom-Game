@@ -32,7 +32,7 @@ public class Magician extends Hero{
         char input ;
         int ascii, intInput;
         String temp;
-        System.out.println("Pilih Skill Pertahanan (defend/counter/magic defend/giveUp):");
+        System.out.println("Pilih Skill Pertahanan (Defend/Counter/Magic Shield/Give Up):");
         do{
             temp = scanner.nextLine();
             input = temp.charAt(0);
@@ -59,7 +59,7 @@ public class Magician extends Hero{
                 dmg = (getMagicPower() * 2);
                 dmg = dmg < 0 ? 0 : dmg;
                 System.out.println("Musuh menggunakan Counter!");
-                System.out.println("Musuh menggunakan Scorch!");
+                System.out.println("Kamu menggunakan Scorch!");
             }
             else { dmg = getMagicPower() / 2;
             dmg = dmg < 0 ? 0 : dmg;

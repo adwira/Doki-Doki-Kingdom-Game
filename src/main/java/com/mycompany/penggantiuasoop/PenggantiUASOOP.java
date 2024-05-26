@@ -56,14 +56,14 @@ public class PenggantiUASOOP {
         Enemy slime2 = new Slime("Slime", 150, 1, 50, 10, 10, 40, 40);
         Enemy barbar = new Barbarian("Barbarian", 135, 2, 60, 35, 20, 15, 25);
         Enemy gblking = new Goblin("Goblin King", 300, 3, 100, 40, 30, 25, 20);
-        Enemy gbl4 = new Goblin("Goblin Magician", 100, 2, 35, 25, 20, 15, 5);
+        Enemy bandit = new Bandit("Bandit", 150, 2, 150, 35, 30, 20 , 5);
         listEnemies.add(enemy);
         listEnemies.add(slime);
         listEnemies.add(imp);
         listEnemies.add(slime2);
         listEnemies.add(barbar);
         listEnemies.add(gblking);
-        listEnemies.add(gbl4);
+        listEnemies.add(bandit);
 
         Scanner scanner = new Scanner(System.in);
         typeWithAnimation(welcomeMessage);
@@ -105,17 +105,17 @@ public class PenggantiUASOOP {
                 System.out.println("10 MP (Magic Power)");
                 System.out.println("15 MD (Magic Defense)");
                 System.out.println("Magician mengandalkan kekuatan sihir untuk"
-                        + " menyerang musuh. Mereka memiliki berbagai mantra"
-                        + " sihir yang dapat menyebabkan kerusakan besar atau"
-                        + " memberikan efek status pada lawan. Magician memiliki"
+                        + " menyerang musuh. Mereka memiliki mantra"
+                        + " sihir scorch yang dapat menyebabkan kerusakan besar"
+                        + "  pada lawan. Magician memiliki"
                         + " statistik awal :");
                 System.out.println("100 HP");
                 System.out.println("10 PP (Physical Power)");
                 System.out.println("15 PD (Physical Defense)");
                 System.out.println("40 MP (Magic Power)");
                 System.out.println("35 MD (Magic Defense)");
-                System.out.println("Thief memiliki kemampuan untuk mencuri"
-                        + " barang dari musuh atau pemain lain. Thief memiliki"
+                System.out.println("Thief memiliki kemampuan menggunakan gold"
+                        + " untuk menyebabkan kerusakan yang besar. Thief memiliki"
                         + " statistik awal :");
                 System.out.println("120 HP");
                 System.out.println("35 PP (Physical Power)");
@@ -170,6 +170,7 @@ public class PenggantiUASOOP {
 //                masuk ke shop
                 while (true) {
                     System.out.println("Selamat datang di Doki Doki SHOP..");
+                    System.out.println("Kamu memiliki " + hero.getGold() + " Gold");
                     System.out.println("Ketikkan salah satu angka dari 1-6 untuk memilih opsi peningkatan");
                     System.out.println("1. Peningkatan HP");
                     System.out.println("2. Peningkatan Physical Power");
@@ -183,31 +184,31 @@ public class PenggantiUASOOP {
                     poinUp = 0;
                     
                     if ("1".equals(input)) {
-                        System.out.println("Masukan Jumlah Peningkatan HP yang Diinginkan");
+                        System.out.println("Masukan Jumlah Peningkatan HP yang Diinginkan, 1 Poin = 10 Gold");
                         poinUp = scanner.nextInt();
                         up.hpUp(hero, poinUp);                                               
                         scanner.nextLine();
                         
                     } else if ("2".equals(input)) {
-                        System.out.println("Masukan Jumlah Peningkatan Physical Power yang Diinginkan");
+                        System.out.println("Masukan Jumlah Peningkatan Physical Power yang Diinginkan, 1 Poin = 50 Gold");
                         poinUp = scanner.nextInt();
                         up.ppUp(hero, poinUp);
                         scanner.nextLine();
                         
                     } else if ("3".equals(input)) {
-                        System.out.println("Masukan Jumlah Peningkatan Physical Defense yang Diinginkan");
+                        System.out.println("Masukan Jumlah Peningkatan Physical Defense yang Diinginkan, 1 Poin = 50 Gold");
                         poinUp = scanner.nextInt();
                         up.pdUp(hero, poinUp);                      
                         scanner.nextLine();
                         
                     } else if ("4".equals(input)) {
-                        System.out.println("Masukan Jumlah Peningkatan Magic Power yang Diinginkan");
+                        System.out.println("Masukan Jumlah Peningkatan Magic Power yang Diinginkan, 1 Poin = 50 Gold");
                         poinUp = scanner.nextInt();
                         up.mgP(hero, poinUp);
                         scanner.nextLine();
                         
                     } else if ("5".equals(input)) {
-                        System.out.println("Masukan Jumlah Peningkatan Magic Defense yang Diinginkan");
+                        System.out.println("Masukan Jumlah Peningkatan Magic Defense yang Diinginkan, 1 Poin = 50 Gold");
                         poinUp = scanner.nextInt();
                         up.mgD(hero, poinUp);
                         scanner.nextLine();
