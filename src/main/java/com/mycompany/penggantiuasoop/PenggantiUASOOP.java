@@ -3,13 +3,9 @@
  */
 package com.mycompany.penggantiuasoop;
 
-//import java.util.ArrayList;
-//import java.util.List;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 // *
 // * @author User
 // */
@@ -19,10 +15,10 @@ public class PenggantiUASOOP {
     private static void typeWithAnimation(String text) throws InterruptedException {
         for (char c : text.toCharArray()) {
             System.out.print(c);
-            System.out.flush(); // Memastikan karakter langsung ditampilkan
-            Thread.sleep(50); // Menunda 50 milidetik antara setiap karakter
+            System.out.flush(); 
+            Thread.sleep(50);
         }
-        System.out.println(); // Pindah ke baris baru setelah teks selesai
+        System.out.println();
     }
 
     public static int checker() {
@@ -46,9 +42,7 @@ public class PenggantiUASOOP {
         String input;
         Upgrading up = new Upgrading();
         int index = 4, length, enemyCount = 0, battleState = 0;
-        //int battleState = 0;
         List<Enemy> listEnemies = new ArrayList<>();
-        String Nama = "";
         Hero hero = null;
         String welcomeMessage = "SELAMAT DATANG DI DOKI DOKI ADVENTURE!";
         String message1 = "Tekan enter untuk melanjutkan...";
@@ -57,17 +51,17 @@ public class PenggantiUASOOP {
 
 //        Add Enemy to List
         Enemy enemy = new Goblin("Goblin Grunt", 90, 1, 35, 25, 20, 15, 5);
-        Enemy slime = new Slime("Slime", 150, 1, 50, 10, 10, 40, 40);
+        Enemy slime = new Slime("Slime", 150, 1, 30, 10, 10, 40, 40);
+        Enemy imp = new Imp("Imp", 120, 2, 55, 15, 20, 30, 25);
         Enemy slime2 = new Slime("Slime", 150, 1, 50, 10, 10, 40, 40);
-        Enemy goblin2 = new Goblin("Goblin", 90, 1, 35, 25, 20, 15, 5);
-        Enemy goblin3 = new Goblin("Goblin 3", 90, 1, 35, 25, 20, 15, 5);
-        Enemy gblking = new Goblin("Goblin King", 200, 1, 35, 25, 20, 15, 5);
+        Enemy barbar = new Barbarian("Barbarian", 135, 2, 60, 35, 20, 15, 25);
+        Enemy gblking = new Goblin("Goblin King", 300, 3, 100, 40, 30, 25, 20);
         Enemy gbl4 = new Goblin("Goblin Magician", 100, 2, 35, 25, 20, 15, 5);
         listEnemies.add(enemy);
         listEnemies.add(slime);
+        listEnemies.add(imp);
         listEnemies.add(slime2);
-        listEnemies.add(goblin2);
-        listEnemies.add(goblin3);
+        listEnemies.add(barbar);
         listEnemies.add(gblking);
         listEnemies.add(gbl4);
 
@@ -82,14 +76,6 @@ public class PenggantiUASOOP {
 
         typeWithAnimation(message3);
         String nama = scanner.nextLine();
-//        System.out.println("SELAMAT DATANG DI DOKI DOKI ADVENTURE!");
-//        System.out.print("Tekan enter untuk melanjutkan...");
-//        scanner.nextLine();
-//        System.out.println("KAMU ADALAH SEORANG PAHLAWAN, TOLONG SELAMATKAN DUNIA INI!");
-//        System.out.print("Tekan enter untuk melanjutkan...");
-//        scanner.nextLine();
-//        System.out.println("Masukan Nama Hero Anda!");
-//        Nama = scanner.nextLine();
 
         while (true) {
             System.out.println("PERTAMA-TAMA, PILIH ROLE KAMU!");
@@ -97,16 +83,16 @@ public class PenggantiUASOOP {
             System.out.println("2. Thief");
             System.out.println("3. Magician");
             System.out.println("4. Deskripsi Role");
-            System.out.println("Input 1-4");
+            System.out.println("Input 1-4 : ");
             c = checker();
             if (c == 1) {
-                hero = new Warrior(Nama);
+                hero = new Warrior(nama);
                 break;
             } else if (c == 2) {
-                hero = new Thief(Nama);
+                hero = new Thief(nama);
                 break;
             } else if (c == 3) {
-                hero = new Magician(Nama);
+                hero = new Magician(nama);
                 break;
             } else if (c == 4) {
                 System.out.println("Warrior mengutamakan kekuatan fisik dan"
@@ -179,6 +165,7 @@ public class PenggantiUASOOP {
                 scanner.nextLine();
                 currentEnemy = listEnemies.get(index);
                 battleState = battle.start(currentEnemy);
+                index++;
 
 //                masuk ke shop
                 while (true) {
@@ -190,6 +177,7 @@ public class PenggantiUASOOP {
                     System.out.println("4. Peningkatan Magic Power");
                     System.out.println("5. Peningkatan Magic Defense");
                     System.out.println("6. Penyembuhan Total");
+                    System.out.println("Tekan Apa Saja untuk lanjut");
                     input = scanner.nextLine();
                     System.out.println(input);
                     poinUp = 0;
@@ -197,40 +185,37 @@ public class PenggantiUASOOP {
                     if ("1".equals(input)) {
                         System.out.println("Masukan Jumlah Peningkatan HP yang Diinginkan");
                         poinUp = scanner.nextInt();
-                        up.hpUp(hero, poinUp);
-                        
-                        System.out.println("Tekan Apa Saja untuk kembali");
-                        
+                        up.hpUp(hero, poinUp);                                               
                         scanner.nextLine();
+                        
                     } else if ("2".equals(input)) {
                         System.out.println("Masukan Jumlah Peningkatan Physical Power yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.ppUp(hero, poinUp);
-                        System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
+                        
                     } else if ("3".equals(input)) {
                         System.out.println("Masukan Jumlah Peningkatan Physical Defense yang Diinginkan");
                         poinUp = scanner.nextInt();
-                        up.pdUp(hero, poinUp);
-                        System.out.println("Tekan Apa Saja untuk kembali");
+                        up.pdUp(hero, poinUp);                      
                         scanner.nextLine();
+                        
                     } else if ("4".equals(input)) {
                         System.out.println("Masukan Jumlah Peningkatan Magic Power yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.mgP(hero, poinUp);
-                        System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
+                        
                     } else if ("5".equals(input)) {
                         System.out.println("Masukan Jumlah Peningkatan Magic Defense yang Diinginkan");
                         poinUp = scanner.nextInt();
                         up.mgD(hero, poinUp);
-                        System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
+                        
                     }
                     else if("6".equals(input)){
                         up.healing(hero);
                         System.out.println("HP-mu Telah Penuh Kembali!");
-                        System.out.println("Tekan Apa Saja untuk kembali");
                         scanner.nextLine();
                     }
                     else {

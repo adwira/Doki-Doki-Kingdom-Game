@@ -26,7 +26,7 @@ public class Battle {
 
             case 3 -> hero.skillSpecial(enemy);
 
-            case 4 -> hero.buff();
+            case 4 -> hero.buff(enemy);
         }
     }
     
@@ -57,12 +57,12 @@ public class Battle {
             while (true) {
                 if (heroFirst) {
                     // Hero's turn
-                    System.out.println("Giliran Kamu");
+                    System.out.println("Giliran Kamu menyerang!");
                     attack(enemy);
 
                 } else {
                     // Enemy's turn
-                    System.out.println("Giliran Musuh");                   
+                    System.out.println("Giliran Musuh menyerang!");                   
                     attack(hero);
                 }
                 System.out.println();
@@ -80,7 +80,7 @@ public class Battle {
                     hero.debuff();
                     hero.setGold(hero.getGold() + enemy.getGold());
                     System.out.println(enemy.getName() + " telah dikalahkan!");
-                     System.out.println("Kamu mendapatkan " + enemy.getGold() + "Gold!");
+                     System.out.println("Kamu mendapatkan " + enemy.getGold() + " Gold!");
                     return 1;
                 }
                 
@@ -93,7 +93,7 @@ public class Battle {
     private void printTurnSummary(Hero hero, Enemy enemy) {
         // Format the summary using String.format()
         String summary = String.format("%-30s        %-30s\n", hero.getName(), enemy.getName());
-        summary += String.format("HP    : %-30s HP    : %-30s\n", hero.getHp(), enemy.getHp());
+        summary += String.format("HP    : %-30s HP    : %-30s\n", hero.getHp() + "/" + hero.getMaxhp(), enemy.getHp());
         summary += String.format("Level : %-30s Level : %-30s\n", hero.getLevel(), enemy.getLevel());
         summary += String.format("PP    : %-30s PP    : %-30s\n", hero.getPhysicalPower(), enemy.getPhysicalPower());
         summary += String.format("PD    : %-30s PD    : %-30s\n", hero.getPhysicalDefense(), enemy.getPhysicalDefense());

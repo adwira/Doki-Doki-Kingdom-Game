@@ -60,7 +60,16 @@ public class Thief extends Hero{
     }
     
     @Override
-    public void buff(){
+    public void buff(Enemy enemy){
+         int x = enemy.chooseDefenseSkill();   
+        switch (x) {
+            case 1 -> System.out.println("musuh menggunakan Defend!");
+            case 2 -> System.out.println("musuh menggunakan Counter!");
+            case 3 -> System.out.println("musuh menggunakan Magic Shield!");
+            default -> {
+            }
+        }
+        System.out.println("Kamu menggunakan Multiply Gold!");
         setGold(getGold()*3/2);
     }
 }
